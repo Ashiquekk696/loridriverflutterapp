@@ -1,0 +1,181 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.loridriverflutterapp"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="20"
+8-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="31" />
+9-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:3:5-67
+11-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:3:22-64
+12    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+12-->[:file_picker] /home/oem/StudioProjects/loridriverflutterapp/build/file_picker/intermediates/library_manifest/release/AndroidManifest.xml:7:5-80
+12-->[:file_picker] /home/oem/StudioProjects/loridriverflutterapp/build/file_picker/intermediates/library_manifest/release/AndroidManifest.xml:7:22-77
+13
+14    <queries>
+14-->[:file_picker] /home/oem/StudioProjects/loridriverflutterapp/build/file_picker/intermediates/library_manifest/release/AndroidManifest.xml:9:5-15:15
+15        <intent>
+15-->[:file_picker] /home/oem/StudioProjects/loridriverflutterapp/build/file_picker/intermediates/library_manifest/release/AndroidManifest.xml:10:9-14:18
+16            <action android:name="android.intent.action.GET_CONTENT" />
+16-->[:file_picker] /home/oem/StudioProjects/loridriverflutterapp/build/file_picker/intermediates/library_manifest/release/AndroidManifest.xml:11:13-72
+16-->[:file_picker] /home/oem/StudioProjects/loridriverflutterapp/build/file_picker/intermediates/library_manifest/release/AndroidManifest.xml:11:21-69
+17
+18            <data android:mimeType="*/*" />
+18-->[:file_picker] /home/oem/StudioProjects/loridriverflutterapp/build/file_picker/intermediates/library_manifest/release/AndroidManifest.xml:13:13-44
+18-->[:file_picker] /home/oem/StudioProjects/loridriverflutterapp/build/file_picker/intermediates/library_manifest/release/AndroidManifest.xml:13:19-41
+19        </intent>
+20        <!-- Needs to be explicitly declared on Android R+ -->
+21        <package android:name="com.google.android.apps.maps" />
+21-->[com.google.android.gms:play-services-maps:18.0.2] /home/oem/.gradle/caches/transforms-2/files-2.1/7d064776558e2f29807c8a762199a631/jetified-play-services-maps-18.0.2/AndroidManifest.xml:33:9-64
+21-->[com.google.android.gms:play-services-maps:18.0.2] /home/oem/.gradle/caches/transforms-2/files-2.1/7d064776558e2f29807c8a762199a631/jetified-play-services-maps-18.0.2/AndroidManifest.xml:33:18-61
+22
+23        <intent>
+23-->[androidx.media2:media2-session:1.2.0] /home/oem/.gradle/caches/transforms-2/files-2.1/ceed3f2a94aa97e10ce61a44d59bd533/jetified-media2-session-1.2.0/AndroidManifest.xml:25:9-27:18
+24            <action android:name="android.media.browse.MediaBrowserService" />
+24-->[androidx.media2:media2-session:1.2.0] /home/oem/.gradle/caches/transforms-2/files-2.1/ceed3f2a94aa97e10ce61a44d59bd533/jetified-media2-session-1.2.0/AndroidManifest.xml:26:13-79
+24-->[androidx.media2:media2-session:1.2.0] /home/oem/.gradle/caches/transforms-2/files-2.1/ceed3f2a94aa97e10ce61a44d59bd533/jetified-media2-session-1.2.0/AndroidManifest.xml:26:21-76
+25        </intent>
+26        <intent>
+26-->[androidx.media2:media2-session:1.2.0] /home/oem/.gradle/caches/transforms-2/files-2.1/ceed3f2a94aa97e10ce61a44d59bd533/jetified-media2-session-1.2.0/AndroidManifest.xml:28:9-30:18
+27            <action android:name="androidx.media2.session.MediaSessionService" />
+27-->[androidx.media2:media2-session:1.2.0] /home/oem/.gradle/caches/transforms-2/files-2.1/ceed3f2a94aa97e10ce61a44d59bd533/jetified-media2-session-1.2.0/AndroidManifest.xml:29:13-82
+27-->[androidx.media2:media2-session:1.2.0] /home/oem/.gradle/caches/transforms-2/files-2.1/ceed3f2a94aa97e10ce61a44d59bd533/jetified-media2-session-1.2.0/AndroidManifest.xml:29:21-79
+28        </intent>
+29        <intent>
+29-->[androidx.media2:media2-session:1.2.0] /home/oem/.gradle/caches/transforms-2/files-2.1/ceed3f2a94aa97e10ce61a44d59bd533/jetified-media2-session-1.2.0/AndroidManifest.xml:31:9-33:18
+30            <action android:name="androidx.media2.session.MediaLibraryService" />
+30-->[androidx.media2:media2-session:1.2.0] /home/oem/.gradle/caches/transforms-2/files-2.1/ceed3f2a94aa97e10ce61a44d59bd533/jetified-media2-session-1.2.0/AndroidManifest.xml:32:13-82
+30-->[androidx.media2:media2-session:1.2.0] /home/oem/.gradle/caches/transforms-2/files-2.1/ceed3f2a94aa97e10ce61a44d59bd533/jetified-media2-session-1.2.0/AndroidManifest.xml:32:21-79
+31        </intent>
+32    </queries>
+33
+34    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+34-->[com.google.android.exoplayer:exoplayer-core:2.17.1] /home/oem/.gradle/caches/transforms-2/files-2.1/f81d7720190f110f0e5c11d71f550860/jetified-exoplayer-core-2.17.1/AndroidManifest.xml:24:5-79
+34-->[com.google.android.exoplayer:exoplayer-core:2.17.1] /home/oem/.gradle/caches/transforms-2/files-2.1/f81d7720190f110f0e5c11d71f550860/jetified-exoplayer-core-2.17.1/AndroidManifest.xml:24:22-76
+35
+36    <uses-feature
+36-->[com.google.android.gms:play-services-maps:18.0.2] /home/oem/.gradle/caches/transforms-2/files-2.1/7d064776558e2f29807c8a762199a631/jetified-play-services-maps-18.0.2/AndroidManifest.xml:26:5-28:35
+37        android:glEsVersion="0x00020000"
+37-->[com.google.android.gms:play-services-maps:18.0.2] /home/oem/.gradle/caches/transforms-2/files-2.1/7d064776558e2f29807c8a762199a631/jetified-play-services-maps-18.0.2/AndroidManifest.xml:27:9-41
+38        android:required="true" />
+38-->[com.google.android.gms:play-services-maps:18.0.2] /home/oem/.gradle/caches/transforms-2/files-2.1/7d064776558e2f29807c8a762199a631/jetified-play-services-maps-18.0.2/AndroidManifest.xml:28:9-32
+39
+40    <application
+41        android:name="android.app.Application"
+41-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:6:9-42
+42        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+42-->[androidx.core:core:1.7.0] /home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/AndroidManifest.xml:24:18-86
+43        android:icon="@mipmap/ic_launcher"
+43-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:7:9-43
+44        android:label="loridriverflutterapp" >
+44-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:5:9-45
+45        <meta-data
+45-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:8:9-9:73
+46            android:name="com.google.android.geo.API_KEY"
+46-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:8:20-65
+47            android:value="AIzaSyD842OpG-ufZMA_WRU4-9KCJzGnyVjeHjQ" />
+47-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:9:16-71
+48
+49        <activity
+49-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:11:9-31:20
+50            android:name="com.example.loridriverflutterapp.MainActivity"
+50-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:12:13-41
+51            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+51-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:16:13-163
+52            android:exported="true"
+52-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:13:13-36
+53            android:hardwareAccelerated="true"
+53-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:17:13-47
+54            android:launchMode="singleTop"
+54-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:14:13-43
+55            android:theme="@style/LaunchTheme"
+55-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:15:13-47
+56            android:windowSoftInputMode="adjustResize" >
+56-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:18:13-55
+57
+58            <!--
+59                 Specifies an Android theme to apply to this Activity as soon as
+60                 the Android process has started. This theme is visible to the user
+61                 while the Flutter UI initializes. After that, this theme continues
+62                 to determine the Window background behind the Flutter UI.
+63            -->
+64            <meta-data
+64-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:23:13-26:17
+65                android:name="io.flutter.embedding.android.NormalTheme"
+65-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:24:15-70
+66                android:resource="@style/NormalTheme" />
+66-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:25:15-52
+67
+68            <intent-filter>
+68-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:27:13-30:29
+69                <action android:name="android.intent.action.MAIN" />
+69-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:28:17-68
+69-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:28:25-66
+70
+71                <category android:name="android.intent.category.LAUNCHER" />
+71-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:29:17-76
+71-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:29:27-74
+72            </intent-filter>
+73        </activity>
+74        <!--
+75             Don't delete the meta-data below.
+76             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+77        -->
+78        <meta-data
+78-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:34:9-36:33
+79            android:name="flutterEmbedding"
+79-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:35:13-44
+80            android:value="2" />
+80-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:36:13-30
+81
+82        <activity
+82-->[:url_launcher_android] /home/oem/StudioProjects/loridriverflutterapp/build/url_launcher_android/intermediates/library_manifest/release/AndroidManifest.xml:8:9-11:74
+83            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+83-->[:url_launcher_android] /home/oem/StudioProjects/loridriverflutterapp/build/url_launcher_android/intermediates/library_manifest/release/AndroidManifest.xml:9:13-74
+84            android:exported="false"
+84-->[:url_launcher_android] /home/oem/StudioProjects/loridriverflutterapp/build/url_launcher_android/intermediates/library_manifest/release/AndroidManifest.xml:10:13-37
+85            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+85-->[:url_launcher_android] /home/oem/StudioProjects/loridriverflutterapp/build/url_launcher_android/intermediates/library_manifest/release/AndroidManifest.xml:11:13-71
+86
+87        <uses-library
+87-->[androidx.window:window:1.0.0-beta04] /home/oem/.gradle/caches/transforms-2/files-2.1/03c633e46d75bfb21f082f0417f55161/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
+88            android:name="androidx.window.extensions"
+88-->[androidx.window:window:1.0.0-beta04] /home/oem/.gradle/caches/transforms-2/files-2.1/03c633e46d75bfb21f082f0417f55161/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
+89            android:required="false" />
+89-->[androidx.window:window:1.0.0-beta04] /home/oem/.gradle/caches/transforms-2/files-2.1/03c633e46d75bfb21f082f0417f55161/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
+90        <uses-library
+90-->[androidx.window:window:1.0.0-beta04] /home/oem/.gradle/caches/transforms-2/files-2.1/03c633e46d75bfb21f082f0417f55161/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
+91            android:name="androidx.window.sidecar"
+91-->[androidx.window:window:1.0.0-beta04] /home/oem/.gradle/caches/transforms-2/files-2.1/03c633e46d75bfb21f082f0417f55161/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
+92            android:required="false" /> <!-- Needs to be explicitly declared on P+ -->
+92-->[androidx.window:window:1.0.0-beta04] /home/oem/.gradle/caches/transforms-2/files-2.1/03c633e46d75bfb21f082f0417f55161/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
+93        <uses-library
+93-->[com.google.android.gms:play-services-maps:18.0.2] /home/oem/.gradle/caches/transforms-2/files-2.1/7d064776558e2f29807c8a762199a631/jetified-play-services-maps-18.0.2/AndroidManifest.xml:39:9-41:40
+94            android:name="org.apache.http.legacy"
+94-->[com.google.android.gms:play-services-maps:18.0.2] /home/oem/.gradle/caches/transforms-2/files-2.1/7d064776558e2f29807c8a762199a631/jetified-play-services-maps-18.0.2/AndroidManifest.xml:40:13-50
+95            android:required="false" />
+95-->[com.google.android.gms:play-services-maps:18.0.2] /home/oem/.gradle/caches/transforms-2/files-2.1/7d064776558e2f29807c8a762199a631/jetified-play-services-maps-18.0.2/AndroidManifest.xml:41:13-37
+96
+97        <activity
+97-->[com.google.android.gms:play-services-base:18.0.1] /home/oem/.gradle/caches/transforms-2/files-2.1/642cc9e2632e586d1058ed231591ead4/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
+98            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+98-->[com.google.android.gms:play-services-base:18.0.1] /home/oem/.gradle/caches/transforms-2/files-2.1/642cc9e2632e586d1058ed231591ead4/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:19-85
+99            android:exported="false"
+99-->[com.google.android.gms:play-services-base:18.0.1] /home/oem/.gradle/caches/transforms-2/files-2.1/642cc9e2632e586d1058ed231591ead4/jetified-play-services-base-18.0.1/AndroidManifest.xml:22:19-43
+100            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+100-->[com.google.android.gms:play-services-base:18.0.1] /home/oem/.gradle/caches/transforms-2/files-2.1/642cc9e2632e586d1058ed231591ead4/jetified-play-services-base-18.0.1/AndroidManifest.xml:21:19-78
+101
+102        <meta-data
+102-->[com.google.android.gms:play-services-basement:18.0.0] /home/oem/.gradle/caches/transforms-2/files-2.1/65c8b9154009d1931a3db50d7627d9e4/jetified-play-services-basement-18.0.0/AndroidManifest.xml:21:9-23:69
+103            android:name="com.google.android.gms.version"
+103-->[com.google.android.gms:play-services-basement:18.0.0] /home/oem/.gradle/caches/transforms-2/files-2.1/65c8b9154009d1931a3db50d7627d9e4/jetified-play-services-basement-18.0.0/AndroidManifest.xml:22:13-58
+104            android:value="@integer/google_play_services_version" />
+104-->[com.google.android.gms:play-services-basement:18.0.0] /home/oem/.gradle/caches/transforms-2/files-2.1/65c8b9154009d1931a3db50d7627d9e4/jetified-play-services-basement-18.0.0/AndroidManifest.xml:23:13-66
+105    </application>
+106
+107</manifest>

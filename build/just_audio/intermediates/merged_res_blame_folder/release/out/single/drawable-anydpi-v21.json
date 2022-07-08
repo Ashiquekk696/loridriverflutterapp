@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/just_audio/intermediates/res/merged/release/drawable-anydpi-v21/media_session_service_notification_ic_music_note.xml",
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/ceed3f2a94aa97e10ce61a44d59bd533/jetified-media2-session-1.2.0/res/drawable-anydpi-v21/media_session_service_notification_ic_music_note.xml"
+    },
+    {
+        "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/just_audio/intermediates/res/merged/release/drawable-anydpi-v21/media_session_service_notification_ic_skip_to_next.xml",
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/ceed3f2a94aa97e10ce61a44d59bd533/jetified-media2-session-1.2.0/res/drawable-anydpi-v21/media_session_service_notification_ic_skip_to_next.xml"
+    },
+    {
+        "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/just_audio/intermediates/res/merged/release/drawable-anydpi-v21/media_session_service_notification_ic_skip_to_previous.xml",
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/ceed3f2a94aa97e10ce61a44d59bd533/jetified-media2-session-1.2.0/res/drawable-anydpi-v21/media_session_service_notification_ic_skip_to_previous.xml"
+    },
+    {
+        "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/just_audio/intermediates/res/merged/release/drawable-anydpi-v21/media_session_service_notification_ic_play.xml",
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/ceed3f2a94aa97e10ce61a44d59bd533/jetified-media2-session-1.2.0/res/drawable-anydpi-v21/media_session_service_notification_ic_play.xml"
+    },
+    {
+        "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/just_audio/intermediates/res/merged/release/drawable-anydpi-v21/media_session_service_notification_ic_pause.xml",
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/ceed3f2a94aa97e10ce61a44d59bd533/jetified-media2-session-1.2.0/res/drawable-anydpi-v21/media_session_service_notification_ic_pause.xml"
+    }
+]
