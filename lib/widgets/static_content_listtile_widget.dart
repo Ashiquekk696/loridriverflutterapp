@@ -42,6 +42,12 @@ class _ListTileWidgetState extends State<ListTileWidget> {
   }
 
   @override
+  void dispose() {
+    staticContentsBloc.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(left: 15, right: 15),

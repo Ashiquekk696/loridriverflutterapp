@@ -9,6 +9,7 @@ import 'package:loridriverflutterapp/widgets/button_widget.dart';
 import 'package:loridriverflutterapp/widgets/textfield_widget.dart';
 
 import '../helpers/api_helper.dart';
+import '../widgets/toast_widget.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -35,14 +36,27 @@ class _LoginPageState extends State<LoginPage> {
         case Status.LOADING:
           break;
         case Status.COMPLETED:
+          showToast(msg: "Login Successfull");
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => MainBottomNavBar()));
+
           setState(() {});
           break;
         case Status.ERROR:
           break;
       }
     });
+  }
+
+  showToast({msg}) async {
+    await toastWidget(
+        bgColor: Colors.grey, textColor: Colors.white, msg: msg ?? "");
+  }
+
+  @override
+  void dispose() {
+    _bloc.dispose();
+    super.dispose();
   }
 
   @override
@@ -105,6 +119,7 @@ class _LoginPageState extends State<LoginPage> {
               Container(
                 margin: EdgeInsets.only(left: 64, right: 64),
                 child: TextFieldWidget(
+                  obscureText: true,
                   validator: (value) {
                     if (value!.isEmpty) {
                       return "Password required";

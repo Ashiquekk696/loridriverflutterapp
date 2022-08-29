@@ -56,6 +56,12 @@ class _MorePageState extends State<MorePage> {
   }
 
   @override
+  void dispose() {
+    bloc.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
@@ -97,23 +103,21 @@ class _MorePageState extends State<MorePage> {
             height: 20,
           ),
           listTile("assets/images/package.png", "Package Guidelines"),
-          listTile("assets/images/comment.png", "Terms and Policies",
-              onTap: () {
+          listTile("assets/images/Terms.png", "Terms and Policies", onTap: () {
             Navigator.push(
                 context,
                 MaterialPageRoute(
                     builder: (context) => TermsAndPoliciesPage()));
           }),
-          listTile("assets/images/faqs.png", "FAQs", height: 30, onTap: () {
+          listTile("assets/images/faqs.png", "FAQs", onTap: () {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => FaqsPage()));
           }),
-          listTile("assets/images/about.png", "About", height: 28, onTap: () {
+          listTile("assets/images/about.png", "About", onTap: () {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => AboutUsPage()));
           }),
-          listTile("assets/images/ic_action_contact.png", "Contact", height: 20,
-              onTap: () {
+          listTile("assets/images/ic_action_contact.png", "Contact", onTap: () {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => ContactPage()));
           }),
@@ -121,77 +125,80 @@ class _MorePageState extends State<MorePage> {
             showDialog(
                 context: context,
                 builder: (_) {
-                  return Dialog(
-                    child: Container(
-                      height: 160,
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 30,
-                          ),
-                          Row(
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Dialog(
+                        child: Container(
+                          margin: EdgeInsets.only(left: 20, right: 20),
+                          // height: 160,
+                          child: Column(
                             children: [
                               SizedBox(
-                                width: 25,
+                                height: 30,
                               ),
-                              Text(
-                                "Logout",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w500, fontSize: 18),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Row(
-                            children: [
-                              SizedBox(
-                                width: 25,
-                              ),
-                              Text(
-                                "Do you want to logout?",
-                                style: TextStyle(fontSize: 15),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 30,
-                          ),
-                          Row(
-                            children: [
-                              SizedBox(
-                                width: 140,
-                              ),
-                              Text(
-                                "CANCEL",
-                                style: TextStyle(
-                                    fontSize: 13, color: Colors.black),
+                              Row(
+                                children: [
+                                  Text(
+                                    "Logout",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 18),
+                                  ),
+                                ],
                               ),
                               SizedBox(
-                                width: 13,
+                                height: 10,
                               ),
-                              GestureDetector(
-                                onTap: () async {
-                                  print("object");
-                                  SharedPreferences preferences =
-                                      await SharedPreferences.getInstance();
+                              Row(
+                                children: [
+                                  Text(
+                                    "Do you want to logout?",
+                                    style: TextStyle(fontSize: 15),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 30,
+                              ),
+                              Row(
+                                children: [
+                                  Spacer(),
+                                  Text(
+                                    "CANCEL",
+                                    style: TextStyle(
+                                        fontSize: 13, color: Colors.black),
+                                  ),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  GestureDetector(
+                                    onTap: () async {
+                                      print("object");
+                                      SharedPreferences preferences =
+                                          await SharedPreferences.getInstance();
 
-                                  bloc.logOut(
-                                      userToken:
-                                          preferences.getString("token"));
-                                },
-                                child: Text(
-                                  "YES",
-                                  style: TextStyle(
-                                      fontSize: 13, color: Colors.black),
-                                ),
+                                      bloc.logOut(
+                                          userToken:
+                                              preferences.getString("token"));
+                                    },
+                                    child: Text(
+                                      "YES",
+                                      style: TextStyle(
+                                          fontSize: 13, color: Colors.black),
+                                    ),
+                                  ),
+                                ],
                               ),
+                              SizedBox(
+                                height: 30,
+                              )
                             ],
                           ),
-                        ],
+                        ),
                       ),
-                    ),
+                    ],
                   );
                 });
           })

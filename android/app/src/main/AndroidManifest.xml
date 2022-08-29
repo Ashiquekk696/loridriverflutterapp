@@ -2,11 +2,11 @@
     package="com.example.loridriverflutterapp">
     <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="loridriverflutterapp"
+        android:label="Lori Driver"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <meta-data android:name="com.google.android.geo.API_KEY"
-               android:value="AIzaSyD842OpG-ufZMA_WRU4-9KCJzGnyVjeHjQ"/>
+               android:value="AIzaSyBWU_ZsAYVqu7OdhZ5-oRkz3tNySwAnIVY"/>
  
         <activity
             android:name=".MainActivity"

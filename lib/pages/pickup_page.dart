@@ -3,6 +3,7 @@ import 'package:loridriverflutterapp/bloc/delivered_bloc.dart';
 import 'package:loridriverflutterapp/bloc/orders_bloc.dart';
 import 'package:loridriverflutterapp/bloc/picked_bloc.dart';
 import 'package:loridriverflutterapp/widgets/snackbar_widget.dart';
+import 'package:loridriverflutterapp/widgets/toast_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
 import 'package:loridriverflutterapp/helpers/text_styles.dart';
@@ -13,6 +14,8 @@ import 'package:file_picker/file_picker.dart';
 import '../helpers/api_helper.dart';
 import '../helpers/colors.dart';
 import '../widgets/bottom_bar_widget.dart';
+import '../widgets/circular_indicator.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class PickUpPage extends StatefulWidget {
   PickUpPage({Key? key, this.ordersData}) : super(key: key);
@@ -55,38 +58,22 @@ class _PickUpPageState extends State<PickUpPage> {
     await launchUrl(Uri.parse(number));
   }
 
-  // getOrdersData() {
-  //   orderssBloc.getOrdersData();
-  //   orderssBloc.orderssStream.listen((event) {
-  //     switch (event.status) {
-  //       case Status.LOADING:
-  //       //  isLoading = true;
-  //         setState(() {});
-  //         break;
-  //       case Status.COMPLETED:
-  //      //   isLoading = false;
-  //         ordersModel = event.data;
-  //         setState(() {});
-  //         break;
-  //       case Status.ERROR:
-  //         // TODO: Handle this case.
-  //         break;
-  //     }
-  //   });
-  // }
-
-  pickedUp() {
-    _bloc.pickedUpStream.listen((event) {
+  bool isLoading = false;
+  pickedUp() async {
+    await _bloc.pickedUpStream.listen((event) {
       switch (event.status) {
         case Status.LOADING:
+          isLoading = true;
+          setState(() {});
           break;
         case Status.COMPLETED:
+          isLoading = false;
+          showToast(msg: "Successfully Pickedup");
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => MainBottomNavBar()));
+
           setState(() {});
 
-          ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text("Successfully pickedup" ?? "")));
           break;
         case Status.ERROR:
           break;
@@ -94,18 +81,19 @@ class _PickUpPageState extends State<PickUpPage> {
     });
   }
 
-  delivered() {
-    deliveredBloc.deliveredStream.listen((event) {
+  delivered() async {
+    await deliveredBloc.deliveredStream.listen((event) {
       switch (event.status) {
         case Status.LOADING:
+          isLoading = true;
+          setState(() {});
           break;
         case Status.COMPLETED:
+          showToast(msg: "Successfully Delivered");
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => MainBottomNavBar()));
-          setState(() {});
 
-          ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text("Successfully delivered" ?? "")));
+          setState(() {});
           break;
         case Status.ERROR:
           showSnackBar(context: context, text: event.message ?? "");
@@ -114,15 +102,45 @@ class _PickUpPageState extends State<PickUpPage> {
     });
   }
 
+  showToast({msg}) async {
+    await toastWidget(
+        bgColor: Colors.grey, textColor: Colors.white, msg: msg ?? "");
+  }
+
+  final GlobalKey containerKey1 = GlobalKey();
+  final GlobalKey containerKey2 = GlobalKey();
   @override
   void initState() {
     pickedUp();
     delivered();
+    WidgetsBinding.instance.addPostFrameCallback((_) => getSizeAndPosition());
     super.initState();
+  }
+
+  getSizeAndPosition() {
+    RenderBox? _cardBox1 =
+        containerKey1.currentContext?.findAncestorRenderObjectOfType();
+    containerHeight1 = (_cardBox1?.size.height ?? 0) / 2;
+    cardHeight = _cardBox1?.size.height;
+    RenderBox? _cardBox2 =
+        containerKey2.currentContext?.findAncestorRenderObjectOfType();
+    containerHeight2 = (_cardBox2?.size.height ?? 0) / 2;
+    setState(() {});
+  }
+
+  var containerHeight1;
+  var containerHeight2;
+  double? cardHeight;
+  @override
+  void dispose() {
+    _bloc.dispose();
+    deliveredBloc.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    print("hhh${widget.ordersData?.deliveryName}");
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
@@ -159,763 +177,1168 @@ class _PickUpPageState extends State<PickUpPage> {
               ],
             ),
           ),
-          Container(
-            margin: EdgeInsets.only(left: 20, right: 20),
-            height: 550,
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 25,
-                  ),
-                  Visibility(
-                    visible: widget.ordersData?.statusId != 3,
+          isLoading
+              ? Column(
+                  children: [
+                    SizedBox(
+                      height: 190,
+                    ),
+                    CircularIndicator(),
+                  ],
+                )
+              : Container(
+                  margin: EdgeInsets.only(left: 20, right: 20),
+                  height: 550,
+                  child: SingleChildScrollView(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Container(
-                          height: 166,
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Expanded(
-                                child: Container(
-                                  margin: EdgeInsets.only(left: 20),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SizedBox(
-                                        height: 20,
-                                      ),
-                                      Text(
-                                        "PickUp Address",
-                                        style: TextStyles().subTitle(
-                                          fontSize: 15,
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 10,
-                                      ),
-                                      Text(
-                                        widget.ordersData?.pickupBuilding ?? "",
-                                        style: TextStyles().subTitle(
-                                            fontSize: 15,
-                                            color:
-                                                Colors.black.withOpacity(0.6)),
-                                      ),
-                                      SizedBox(
-                                        height: 10,
-                                      ),
-                                      Text(
-                                        widget.ordersData?.pickupApartment ??
-                                            "",
-                                        style: TextStyles().subTitle(
-                                            fontSize: 15,
-                                            color:
-                                                Colors.black.withOpacity(0.6)),
-                                      ),
-                                      Text(
-                                        widget.ordersData?.pickupPhone ?? "",
-                                        style: TextStyles().subTitle(
-                                            fontSize: 15,
-                                            color:
-                                                Colors.black.withOpacity(0.6)),
-                                      ),
-                                      Text(
-                                        widget.ordersData?.pickupCity ?? "",
-                                        style: TextStyles().subTitle(
-                                            fontSize: 15,
-                                            color:
-                                                Colors.black.withOpacity(0.6)),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Column(
-                                children: [
-                                  Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                          topRight: Radius.circular(5)),
-                                      color: Theme.of(context).primaryColor,
-                                    ),
-                                    height: 82.9,
-                                    width: 100,
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        GestureDetector(
-                                          onTap: () {
-                                            Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        MapPage(
-                                                          iniLatitude: widget
-                                                              .ordersData
-                                                              ?.pickupLatitude,
-                                                          iniLongitude: widget
-                                                              .ordersData
-                                                              ?.pickupLongitude,
-                                                        )));
-                                          },
-                                          child: Image.asset(
-                                            "assets/images/location.png",
-                                            height: 25,
-                                          ),
-                                        ),
-                                        Text(
-                                          "Location",
-                                          style: TextStyles().subTitle(
-                                              color: Colors.white,
-                                              fontSize: 12),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                  GestureDetector(
-                                    onTap: () async {
-                                      await makeCall(
-                                          number:
-                                              widget.ordersData?.pickupPhone);
-                                    },
-                                    child: Container(
-                                      height: 82.9,
-                                      width: 100,
-                                      decoration: BoxDecoration(
-                                        color: Colors.black,
-                                        borderRadius: BorderRadius.only(
-                                            bottomRight: Radius.circular(5)),
-                                      ),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.phone,
-                                            color: Colors.white,
-                                          ),
-                                          Text(
-                                            "Contact",
-                                            style: TextStyles().subTitle(
-                                                color: Colors.white,
-                                                fontSize: 12),
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                          //   margin: EdgeInsets.only(left: 20, right: 20),
-                          decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(5)),
-                              color: AppColors.greyExtraLight,
-                              border:
-                                  Border.all(color: Colors.black, width: 0.05)),
-                        ),
                         SizedBox(
                           height: 25,
                         ),
-                        Text(
-                          "PickUp Attachment",
-                          style: TextStyles().subTitle(
-                            fontSize: 15,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Container(
-                          height: 83,
-                          width: 300,
-                          child: Row(
-                            children: [
-                              GestureDetector(
-                                onTap: () {
-                                  getImages(images: pickUpImages);
-                                },
-                                child: Container(
-                                  height: 83,
-                                  width: 100,
-                                  color: Colors.grey.withOpacity(0.1),
-                                  child: Icon(
-                                    Icons.add,
-                                    color: Colors.black38,
-                                    size: 50,
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                width: 3,
-                              ),
-                              Expanded(
-                                child: ListView.builder(
-                                    scrollDirection: Axis.horizontal,
-                                    itemCount: pickUpImages.length,
-                                    itemBuilder: (context, i) {
-                                      return Row(
-                                        children: [
-                                          Container(
-                                            height: 83,
-                                            width: 100,
-                                            child: Stack(
-                                              children: [
-                                                Container(
-                                                  height: 83,
-                                                  width: 100,
-                                                  child: Image.file(
-                                                    pickUpImages[i],
-                                                    fit: BoxFit.cover,
-                                                  ),
-                                                ),
-                                                Align(
-                                                    alignment:
-                                                        Alignment.topRight,
-                                                    child: Container(
-                                                      decoration: BoxDecoration(
-                                                          shape:
-                                                              BoxShape.circle,
-                                                          color: Colors.white),
-                                                      child: GestureDetector(
-                                                        onTap: () {
-                                                          pickUpImages
-                                                              .removeAt(i);
-                                                          setState(() {});
-                                                        },
-                                                        child: Icon(
-                                                          Icons.close,
-                                                          color:
-                                                              Theme.of(context)
-                                                                  .primaryColor,
-                                                          size: 22,
-                                                        ),
-                                                      ),
-                                                    ))
-                                              ],
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            width: 3,
-                                          )
-                                        ],
-                                      );
-                                    }),
-                              )
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
                         Visibility(
-                          visible: widget.ordersData?.payType == 2,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                "Amount",
-                                style: TextStyles().subTitle(
-                                  fontSize: 15,
-                                ),
-                              ),
-
-                              Text(widget.ordersData?.amount ?? ""),
-                              // Container(
-                              //   height: 40,
-                              //   child: TextField(
-                              //     controller: pickUpAmountController,
-                              //     keyboardType: TextInputType.number,
-                              //     decoration: InputDecoration(
-                              //         contentPadding: EdgeInsets.all(0)),
-                              //   ),
-                              // ),
-                              SizedBox(
-                                height: 10,
-                              )
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Visibility(
-                    visible:
-                        widget.ordersData?.pickedAttachmentsModel?.isNotEmpty ??
-                            false,
-                    child: Container(
-                      height: 120,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "PickUp Attachment",
-                            style: TextStyles().subTitle(
-                              fontSize: 15,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          Expanded(
-                            child: ListView.builder(
-                                scrollDirection: Axis.horizontal,
-                                itemCount: widget
-                                    .ordersData?.pickedAttachmentsModel?.length,
-                                itemBuilder: (context, i) {
-                                  return Row(
-                                    children: [
-                                      Container(
-                                          height: 83,
-                                          width: 100,
-                                          child: Container(
-                                            height: 83,
-                                            width: 100,
-                                            decoration: BoxDecoration(
-                                                image: DecorationImage(
-                                                    image: NetworkImage(widget
-                                                            .ordersData
-                                                            ?.pickedAttachmentsModel?[
-                                                                i]
-                                                            .pickedAttachment ??
-                                                        ""),
-                                                    fit: BoxFit.fill)),
-                                          )),
-                                      SizedBox(
-                                        width: 3,
-                                      )
-                                    ],
-                                  );
-                                }),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Container(
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                          child: Container(
-                            margin: EdgeInsets.only(left: 20),
+                          visible: widget.ordersData?.pickup == true,
+                          child: Visibility(
+                            visible: widget.ordersData?.statusId != 3,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
+                                LayoutBuilder(builder: (context, constraints) {
+                                  print(constraints.constrainHeight());
+                                  return Container(
+                                    key: containerKey1,
+                                    // height: ((cardHeight ?? 0) < 160)
+                                    //     ? 190
+                                    //     : cardHeight,
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Expanded(
+                                          child: Container(
+                                            margin: EdgeInsets.only(left: 20),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                SizedBox(
+                                                  height: 20,
+                                                ),
+                                                Text(
+                                                  "PickUp Address",
+                                                  style: TextStyles().subTitle(
+                                                    fontSize: 15,
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: 10,
+                                                ),
+
+                                                (widget.ordersData
+                                                                ?.pickUpName ??
+                                                            "") !=
+                                                        ""
+                                                    ? Text(
+                                                        widget.ordersData
+                                                                ?.pickUpName ??
+                                                            "",
+                                                        style: TextStyles()
+                                                            .subTitle(
+                                                                fontSize: 15,
+                                                                color: Colors
+                                                                    .black
+                                                                    .withOpacity(
+                                                                        0.6)))
+                                                    : Container(),
+
+                                                (widget.ordersData?.pickupAddressNo ??
+                                                                "") !=
+                                                            "" ||
+                                                        (widget.ordersData
+                                                                    ?.pickUpAddressName ??
+                                                                "") !=
+                                                            ""
+                                                    ? Text(
+                                                        (widget.ordersData
+                                                                        ?.pickupAddressType ??
+                                                                    "") ==
+                                                                "Apartment"
+                                                            ? (widget.ordersData
+                                                                    ?.pickupAddressNo ??
+                                                                "")
+                                                            : (widget.ordersData
+                                                                            ?.pickupAddressType ??
+                                                                        "") ==
+                                                                    "Villa"
+                                                                ? (widget
+                                                                        .ordersData
+                                                                        ?.pickUpAddressName ??
+                                                                    "")
+                                                                : (widget.ordersData?.pickupAddressType ??
+                                                                            "") ==
+                                                                        "Building"
+                                                                    ? (widget
+                                                                            .ordersData
+                                                                            ?.pickUpAddressName ??
+                                                                        "")
+                                                                    : "",
+                                                        style: TextStyles()
+                                                            .subTitle(
+                                                                fontSize: 15,
+                                                                color: Colors
+                                                                    .black
+                                                                    .withOpacity(
+                                                                        0.6)),
+                                                      )
+                                                    : Container(),
+                                                // SizedBox(
+                                                //   height: 10,
+                                                // ),
+                                                (widget.ordersData?.pickUpAddressFloor ??
+                                                                "") !=
+                                                            "" ||
+                                                        (widget.ordersData
+                                                                    ?.pickupAddressStreet ??
+                                                                "") !=
+                                                            ""
+                                                    ? Text(
+                                                        (widget.ordersData
+                                                                        ?.pickupAddressType ??
+                                                                    "") ==
+                                                                "Apartment"
+                                                            ? (widget.ordersData
+                                                                    ?.pickUpAddressFloor ??
+                                                                "")
+                                                            : (widget.ordersData
+                                                                            ?.pickupAddressType ??
+                                                                        "") ==
+                                                                    "Villa"
+                                                                ? (widget
+                                                                        .ordersData
+                                                                        ?.pickupAddressStreet ??
+                                                                    "")
+                                                                : (widget.ordersData?.pickupAddressType ??
+                                                                            "") ==
+                                                                        "Building"
+                                                                    ? (widget
+                                                                            .ordersData
+                                                                            ?.pickUpAddressFloor ??
+                                                                        "")
+                                                                    : "",
+                                                        style: TextStyles()
+                                                            .subTitle(
+                                                                fontSize: 15,
+                                                                color: Colors
+                                                                    .black
+                                                                    .withOpacity(
+                                                                        0.6)),
+                                                      )
+                                                    : Container(),
+
+                                                Visibility(
+                                                  visible: widget.ordersData
+                                                              ?.pickupAddressType !=
+                                                          "Villa" &&
+                                                      (widget.ordersData
+                                                                  ?.pickUpAddressBuilding !=
+                                                              "" ||
+                                                          widget.ordersData
+                                                                  ?.pickupAddressStreet !=
+                                                              ""),
+                                                  child: Text(
+                                                    widget.ordersData
+                                                                ?.pickupAddressType ==
+                                                            "Apartment"
+                                                        ? (widget.ordersData
+                                                                ?.pickUpAddressBuilding ??
+                                                            "")
+                                                        : (widget.ordersData
+                                                                        ?.pickupAddressType ??
+                                                                    "") ==
+                                                                "Building"
+                                                            ? (widget.ordersData
+                                                                    ?.pickupAddressStreet ??
+                                                                "")
+                                                            : "",
+                                                    style: TextStyles()
+                                                        .subTitle(
+                                                            fontSize: 15,
+                                                            color: Colors.black
+                                                                .withOpacity(
+                                                                    0.6)),
+                                                  ),
+                                                ),
+                                                Visibility(
+                                                  visible: widget
+                                                              .ordersData?.pickupAddressType !=
+                                                          "Villa" &&
+                                                      widget.ordersData
+                                                              ?.pickupAddressType !=
+                                                          "Building" &&
+                                                      (widget.ordersData
+                                                                  ?.pickupAddressStreet ??
+                                                              "") !=
+                                                          "",
+                                                  child: Text(
+                                                    (widget.ordersData
+                                                            ?.pickupAddressStreet ??
+                                                        ""),
+                                                    style: TextStyles()
+                                                        .subTitle(
+                                                            fontSize: 15,
+                                                            color: Colors.black
+                                                                .withOpacity(
+                                                                    0.6)),
+                                                  ),
+                                                ),
+                                                Visibility(
+                                                  visible: widget.ordersData
+                                                          ?.pickupPhone !=
+                                                      "",
+                                                  child: Text(
+                                                    widget.ordersData
+                                                            ?.pickupPhone ??
+                                                        "",
+                                                    style: TextStyles()
+                                                        .subTitle(
+                                                            fontSize: 15,
+                                                            color: Colors.black
+                                                                .withOpacity(
+                                                                    0.6)),
+                                                  ),
+                                                ),
+                                                Visibility(
+                                                  visible: widget.ordersData
+                                                          ?.pickupCity !=
+                                                      "",
+                                                  child: Text(
+                                                    widget.ordersData
+                                                            ?.pickupCity ??
+                                                        "",
+                                                    style: TextStyles()
+                                                        .subTitle(
+                                                            fontSize: 15,
+                                                            color: Colors.black
+                                                                .withOpacity(
+                                                                    0.6)),
+                                                  ),
+                                                ),
+
+                                                SizedBox(
+                                                  height: 10,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.only(
+                                                    topRight:
+                                                        Radius.circular(5)),
+                                                color: Theme.of(context)
+                                                    .primaryColor,
+                                              ),
+                                              height: containerHeight1,
+                                              width: 100,
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  GestureDetector(
+                                                    onTap: () {
+                                                      Navigator.push(
+                                                          context,
+                                                          MaterialPageRoute(
+                                                              builder:
+                                                                  (context) =>
+                                                                      MapPage(
+                                                                        iniLatitude: widget
+                                                                            .ordersData
+                                                                            ?.pickupLatitude,
+                                                                        iniLongitude: widget
+                                                                            .ordersData
+                                                                            ?.pickupLongitude,
+                                                                      )));
+                                                    },
+                                                    child: Image.asset(
+                                                      "assets/images/location.png",
+                                                      height: 25,
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    "Location",
+                                                    style: TextStyles()
+                                                        .subTitle(
+                                                            color: Colors.white,
+                                                            fontSize: 12),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                            GestureDetector(
+                                              onTap: () async {
+                                                await makeCall(
+                                                    number: widget.ordersData
+                                                        ?.pickupPhone);
+                                              },
+                                              child: Container(
+                                                height: containerHeight1,
+                                                width: 100,
+                                                decoration: BoxDecoration(
+                                                  color: Colors.black,
+                                                  borderRadius:
+                                                      BorderRadius.only(
+                                                          bottomRight:
+                                                              Radius.circular(
+                                                                  5)),
+                                                ),
+                                                child: Column(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Icon(
+                                                      Icons.phone,
+                                                      color: Colors.white,
+                                                    ),
+                                                    Text(
+                                                      "Contact",
+                                                      style: TextStyles()
+                                                          .subTitle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 12),
+                                                    )
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                    //   margin: EdgeInsets.only(left: 20, right: 20),
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(5)),
+                                        color: AppColors.greyExtraLight,
+                                        border: Border.all(
+                                            color: Colors.black, width: 0.05)),
+                                  );
+                                }),
                                 SizedBox(
-                                  height: 20,
+                                  height: 25,
                                 ),
                                 Text(
-                                  "Delivery Address",
+                                  "PickUp Attachment",
                                   style: TextStyles().subTitle(
                                     fontSize: 15,
                                   ),
                                 ),
                                 SizedBox(
-                                  height: 10,
+                                  height: 15,
                                 ),
-                                Text(
-                                  widget.ordersData?.deliveryBuilding ?? "",
-                                  style: TextStyles().subTitle(
-                                      fontSize: 15,
-                                      color: Colors.black.withOpacity(0.6)),
+                                Container(
+                                  height: 83,
+                                  width: 300,
+                                  child: Row(
+                                    children: [
+                                      GestureDetector(
+                                        onTap: () {
+                                          getImages(images: pickUpImages);
+                                        },
+                                        child: Container(
+                                          height: 83,
+                                          width: 100,
+                                          color: Colors.grey.withOpacity(0.1),
+                                          child: Icon(
+                                            Icons.add,
+                                            color: Colors.black38,
+                                            size: 50,
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 3,
+                                      ),
+                                      Expanded(
+                                        child: ListView.builder(
+                                            scrollDirection: Axis.horizontal,
+                                            itemCount: pickUpImages.length,
+                                            itemBuilder: (context, i) {
+                                              return Row(
+                                                children: [
+                                                  Container(
+                                                    height: 83,
+                                                    width: 100,
+                                                    child: Stack(
+                                                      children: [
+                                                        Container(
+                                                          height: 83,
+                                                          width: 100,
+                                                          child: Image.file(
+                                                            pickUpImages[i],
+                                                            fit: BoxFit.cover,
+                                                          ),
+                                                        ),
+                                                        Align(
+                                                            alignment: Alignment
+                                                                .topRight,
+                                                            child: Container(
+                                                              decoration: BoxDecoration(
+                                                                  shape: BoxShape
+                                                                      .circle,
+                                                                  color: Colors
+                                                                      .white),
+                                                              child:
+                                                                  GestureDetector(
+                                                                onTap: () {
+                                                                  pickUpImages
+                                                                      .removeAt(
+                                                                          i);
+                                                                  setState(
+                                                                      () {});
+                                                                },
+                                                                child: Icon(
+                                                                  Icons.close,
+                                                                  color: Theme.of(
+                                                                          context)
+                                                                      .primaryColor,
+                                                                  size: 22,
+                                                                ),
+                                                              ),
+                                                            ))
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    width: 3,
+                                                  )
+                                                ],
+                                              );
+                                            }),
+                                      )
+                                    ],
+                                  ),
                                 ),
                                 SizedBox(
                                   height: 10,
                                 ),
-                                Text(
-                                  widget.ordersData?.deliveryCity ?? "",
-                                  style: TextStyles().subTitle(
-                                      fontSize: 15,
-                                      color: Colors.black.withOpacity(0.6)),
-                                ),
-                                Text(
-                                  "${widget.ordersData?.deliveryAddress ?? ""}",
-                                  style: TextStyles().subTitle(
-                                      fontSize: 15,
-                                      color: Colors.black.withOpacity(0.6)),
-                                ),
-                                Text(
-                                  "Dubai",
-                                  style: TextStyles().subTitle(
-                                      fontSize: 15,
-                                      color: Colors.black.withOpacity(0.6)),
-                                ),
                               ],
                             ),
                           ),
                         ),
-                        Container(
-                          //  color: Colors.red,
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              GestureDetector(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => MapPage(
-                                                iniLatitude: widget.ordersData
-                                                    ?.deliveryLatitude,
-                                                iniLongitude: widget.ordersData
-                                                    ?.deliveryLongitude,
-                                              )));
-                                },
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                        topRight: Radius.circular(5)),
-                                    color: Theme.of(context).primaryColor,
-                                  ),
-                                  height: 82.9,
-                                  width: 100,
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Image.asset(
-                                        "assets/images/location.png",
-                                        height: 25,
-                                      ),
-                                      Text(
-                                        "Location",
-                                        style: TextStyles().subTitle(
-                                            color: Colors.white, fontSize: 12),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              GestureDetector(
-                                onTap: () async {
-                                  await makeCall(
-                                      number: widget.ordersData?.deliveryPhone);
-                                },
-                                child: Container(
-                                  height: 82.9,
-                                  width: 100,
-                                  decoration: BoxDecoration(
-                                    color: Colors.black,
-                                    borderRadius: BorderRadius.only(
-                                        bottomRight: Radius.circular(5)),
-                                  ),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        Icons.phone,
-                                        color: Colors.white,
-                                      ),
-                                      Text(
-                                        "Contact",
-                                        style: TextStyles().subTitle(
-                                            color: Colors.white, fontSize: 12),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                    //   margin: EdgeInsets.only(left: 20, right: 20),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(5)),
-                        color: AppColors.greyExtraLight,
-                        border: Border.all(color: Colors.black, width: 0.05)),
-                  ),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  Text(
-                    "Delivery Attachment",
-                    style: TextStyles().subTitle(
-                      fontSize: 15,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Container(
-                    height: 83,
-                    width: 300,
-                    child: Row(
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            getImages(images: deliveryImages);
-                          },
+                        Visibility(
+                          visible: widget.ordersData?.pickedAttachmentsModel
+                                  ?.isNotEmpty ??
+                              false,
                           child: Container(
-                            height: 83,
-                            width: 100,
-                            color: Colors.grey.withOpacity(0.1),
-                            child: Icon(
-                              Icons.add,
-                              color: Colors.black38,
-                              size: 50,
+                            height: 120,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "PickUp Attachment",
+                                  style: TextStyles().subTitle(
+                                    fontSize: 15,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 15,
+                                ),
+                                Expanded(
+                                  child: ListView.builder(
+                                      scrollDirection: Axis.horizontal,
+                                      itemCount: widget.ordersData
+                                          ?.pickedAttachmentsModel?.length,
+                                      itemBuilder: (context, i) {
+                                        print(
+                                            "awwww${widget.ordersData?.pickedAttachmentsModel?[i].pickedAttachment}");
+                                        return Row(
+                                          children: [
+                                            Container(
+                                                height: 83,
+                                                width: 100,
+                                                child: Container(
+                                                  height: 83,
+                                                  width: 100,
+                                                  decoration: BoxDecoration(
+                                                      image: DecorationImage(
+                                                          image: NetworkImage(widget
+                                                                  .ordersData
+                                                                  ?.pickedAttachmentsModel?[
+                                                                      i]
+                                                                  .pickedAttachment ??
+                                                              ""),
+                                                          fit: BoxFit.fill)),
+                                                )),
+                                            SizedBox(
+                                              width: 3,
+                                            )
+                                          ],
+                                        );
+                                      }),
+                                )
+                              ],
                             ),
                           ),
                         ),
                         SizedBox(
-                          width: 3,
+                          height: 15,
                         ),
-                        Expanded(
-                          child: ListView.builder(
-                              scrollDirection: Axis.horizontal,
-                              itemCount: deliveryImages.length,
-                              itemBuilder: (context, i) {
-                                return Row(
-                                  children: [
-                                    Container(
-                                      height: 83,
-                                      width: 100,
-                                      child: Stack(
-                                        children: [
-                                          Container(
-                                            height: 83,
-                                            width: 100,
-                                            child: Image.file(
-                                              deliveryImages[i],
-                                              fit: BoxFit.cover,
-                                            ),
+                        Visibility(
+                          visible: widget.ordersData?.delivery == true,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              LayoutBuilder(builder: (context, constraints) {
+                                return Container(
+                                  key: containerKey2,
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Expanded(
+                                        child: Container(
+                                          margin: EdgeInsets.only(left: 20),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              SizedBox(
+                                                height: 20,
+                                              ),
+                                              Text(
+                                                "Delivery Address",
+                                                style: TextStyles().subTitle(
+                                                  fontSize: 15,
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                height: 10,
+                                              ),
+                                              (widget.ordersData
+                                                              ?.deliveryName ??
+                                                          "") !=
+                                                      ""
+                                                  ? Text(
+                                                      widget.ordersData
+                                                              ?.deliveryName ??
+                                                          "",
+                                                      style: TextStyles()
+                                                          .subTitle(
+                                                              fontSize: 15,
+                                                              color: Colors
+                                                                  .black
+                                                                  .withOpacity(
+                                                                      0.6)))
+                                                  : Container(),
+                                              (widget.ordersData?.deliveryAddressNo ??
+                                                              "") !=
+                                                          "" ||
+                                                      (widget.ordersData
+                                                                  ?.deliveryAddressName ??
+                                                              "") !=
+                                                          ""
+                                                  ? Text(
+                                                      (widget.ordersData
+                                                                      ?.deliveryAddressType ??
+                                                                  "") ==
+                                                              "Apartment"
+                                                          ? (widget.ordersData
+                                                                  ?.deliveryAddressNo ??
+                                                              "")
+                                                          : (widget.ordersData
+                                                                          ?.deliveryAddressType ??
+                                                                      "") ==
+                                                                  "Villa"
+                                                              ? (widget
+                                                                      .ordersData
+                                                                      ?.deliveryAddressName ??
+                                                                  "")
+                                                              : (widget.ordersData
+                                                                              ?.deliveryAddressType ??
+                                                                          "") ==
+                                                                      "Building"
+                                                                  ? (widget
+                                                                          .ordersData
+                                                                          ?.deliveryAddressName ??
+                                                                      "")
+                                                                  : "",
+                                                      style: TextStyles()
+                                                          .subTitle(
+                                                              fontSize: 15,
+                                                              color: Colors
+                                                                  .black
+                                                                  .withOpacity(
+                                                                      0.6)),
+                                                    )
+                                                  : Container(),
+                                              // SizedBox(
+                                              //   height: 10,
+                                              // ),
+                                              (widget.ordersData?.deliveryAddressFloor ??
+                                                              "") !=
+                                                          "" ||
+                                                      (widget.ordersData
+                                                                  ?.deliveryAddressStreet ??
+                                                              "") !=
+                                                          ""
+                                                  ? Text(
+                                                      (widget.ordersData
+                                                                      ?.deliveryAddressType ??
+                                                                  "") ==
+                                                              "Apartment"
+                                                          ? (widget.ordersData
+                                                                  ?.deliveryAddressFloor ??
+                                                              "")
+                                                          : (widget.ordersData
+                                                                          ?.deliveryAddressType ??
+                                                                      "") ==
+                                                                  "Villa"
+                                                              ? (widget
+                                                                      .ordersData
+                                                                      ?.deliveryAddressStreet ??
+                                                                  "")
+                                                              : (widget.ordersData
+                                                                              ?.deliveryAddressType ??
+                                                                          "") ==
+                                                                      "Building"
+                                                                  ? (widget
+                                                                          .ordersData
+                                                                          ?.deliveryAddressFloor ??
+                                                                      "")
+                                                                  : "",
+                                                      style: TextStyles()
+                                                          .subTitle(
+                                                              fontSize: 15,
+                                                              color: Colors
+                                                                  .black
+                                                                  .withOpacity(
+                                                                      0.6)),
+                                                    )
+                                                  : Container(),
+                                              Visibility(
+                                                visible: widget.ordersData
+                                                            ?.deliveryAddressType !=
+                                                        "Villa" &&
+                                                    ((widget.ordersData
+                                                                    ?.deliveryAddressBuilding ??
+                                                                "") !=
+                                                            "" ||
+                                                        (widget.ordersData
+                                                                    ?.deliveryAddressStreet ??
+                                                                "") !=
+                                                            ""),
+                                                child: Text(
+                                                  widget.ordersData
+                                                              ?.deliveryAddressType ==
+                                                          "Apartment"
+                                                      ? (widget.ordersData
+                                                              ?.deliveryAddressBuilding ??
+                                                          "")
+                                                      : (widget.ordersData
+                                                                      ?.deliveryAddressType ??
+                                                                  "") ==
+                                                              "Building"
+                                                          ? (widget.ordersData
+                                                                  ?.deliveryAddressStreet ??
+                                                              "")
+                                                          : "",
+                                                  style: TextStyles().subTitle(
+                                                      fontSize: 15,
+                                                      color: Colors.black
+                                                          .withOpacity(0.6)),
+                                                ),
+                                              ),
+                                              Visibility(
+                                                visible: widget
+                                                            .ordersData?.deliveryAddressType !=
+                                                        "Villa" &&
+                                                    widget.ordersData
+                                                            ?.deliveryAddressType !=
+                                                        "Building" &&
+                                                    widget.ordersData
+                                                            ?.deliveryAddressStreet !=
+                                                        "",
+                                                child: Text(
+                                                  (widget.ordersData
+                                                          ?.deliveryAddressStreet ??
+                                                      ""),
+                                                  style: TextStyles().subTitle(
+                                                      fontSize: 15,
+                                                      color: Colors.black
+                                                          .withOpacity(0.6)),
+                                                ),
+                                              ),
+                                              Text(
+                                                widget.ordersData
+                                                        ?.deliveryPhone ??
+                                                    "",
+                                                style: TextStyles().subTitle(
+                                                    fontSize: 15,
+                                                    color: Colors.black
+                                                        .withOpacity(0.6)),
+                                              ),
+                                              Text(
+                                                widget.ordersData
+                                                        ?.deliveryCity ??
+                                                    "",
+                                                style: TextStyles().subTitle(
+                                                    fontSize: 15,
+                                                    color: Colors.black
+                                                        .withOpacity(0.6)),
+                                              ),
+
+                                              SizedBox(
+                                                height: 10,
+                                              ),
+                                            ],
                                           ),
-                                          Align(
-                                              alignment: Alignment.topRight,
+                                        ),
+                                      ),
+                                      Container(
+                                        //  color: Colors.red,
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            GestureDetector(
+                                              onTap: () {
+                                                Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            MapPage(
+                                                              iniLatitude: widget
+                                                                  .ordersData
+                                                                  ?.deliveryLatitude,
+                                                              iniLongitude: widget
+                                                                  .ordersData
+                                                                  ?.deliveryLongitude,
+                                                            )));
+                                              },
                                               child: Container(
                                                 decoration: BoxDecoration(
-                                                    shape: BoxShape.circle,
-                                                    color: Colors.white),
-                                                child: GestureDetector(
-                                                  onTap: () {
-                                                    deliveryImages.removeAt(i);
-                                                    setState(() {});
-                                                  },
-                                                  child: Icon(
-                                                    Icons.close,
-                                                    color: Theme.of(context)
-                                                        .primaryColor,
-                                                    size: 22,
-                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.only(
+                                                          topRight:
+                                                              Radius.circular(
+                                                                  5)),
+                                                  color: Theme.of(context)
+                                                      .primaryColor,
                                                 ),
-                                              ))
-                                        ],
+                                                height: containerHeight2,
+                                                width: 100,
+                                                child: Column(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Image.asset(
+                                                      "assets/images/location.png",
+                                                      height: 25,
+                                                    ),
+                                                    Text(
+                                                      "Location",
+                                                      style: TextStyles()
+                                                          .subTitle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 12),
+                                                    )
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                            GestureDetector(
+                                              onTap: () async {
+                                                await makeCall(
+                                                    number: widget.ordersData
+                                                        ?.deliveryPhone);
+                                              },
+                                              child: Container(
+                                                height: containerHeight2,
+                                                width: 100,
+                                                decoration: BoxDecoration(
+                                                  color: Colors.black,
+                                                  borderRadius:
+                                                      BorderRadius.only(
+                                                          bottomRight:
+                                                              Radius.circular(
+                                                                  5)),
+                                                ),
+                                                child: Column(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Icon(
+                                                      Icons.phone,
+                                                      color: Colors.white,
+                                                    ),
+                                                    Text(
+                                                      "Contact",
+                                                      style: TextStyles()
+                                                          .subTitle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 12),
+                                                    )
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  //   margin: EdgeInsets.only(left: 20, right: 20),
+                                  decoration: BoxDecoration(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(5)),
+                                      color: AppColors.greyExtraLight,
+                                      border: Border.all(
+                                          color: Colors.black, width: 0.05)),
+                                );
+                              }),
+                              SizedBox(
+                                height: 25,
+                              ),
+                              Text(
+                                "Delivery Attachment",
+                                style: TextStyles().subTitle(
+                                  fontSize: 15,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 15,
+                              ),
+                              Container(
+                                height: 83,
+                                width: 300,
+                                child: Row(
+                                  children: [
+                                    GestureDetector(
+                                      onTap: () async {
+                                        if (widget.ordersData?.statusId == 2) {
+                                          await toastWidget(
+                                              bgColor: Colors.grey,
+                                              textColor: Colors.white,
+                                              msg:
+                                                  "You haven't picked the item yet");
+                                          setState(() {});
+                                          // showSnackBar(
+                                          //     context: context,
+                                          //     text: "You haven't picked yet");
+
+                                        } else
+                                          getImages(images: deliveryImages);
+                                      },
+                                      child: Container(
+                                        height: 83,
+                                        width: 100,
+                                        color: Colors.grey.withOpacity(0.1),
+                                        child: Icon(
+                                          Icons.add,
+                                          color: Colors.black38,
+                                          size: 50,
+                                        ),
                                       ),
                                     ),
                                     SizedBox(
                                       width: 3,
+                                    ),
+                                    Expanded(
+                                      child: ListView.builder(
+                                          scrollDirection: Axis.horizontal,
+                                          itemCount: deliveryImages.length,
+                                          itemBuilder: (context, i) {
+                                            return Row(
+                                              children: [
+                                                Container(
+                                                  height: 83,
+                                                  width: 100,
+                                                  child: Stack(
+                                                    children: [
+                                                      Container(
+                                                        height: 83,
+                                                        width: 100,
+                                                        child: Image.file(
+                                                          deliveryImages[i],
+                                                          fit: BoxFit.cover,
+                                                        ),
+                                                      ),
+                                                      Align(
+                                                          alignment: Alignment
+                                                              .topRight,
+                                                          child: Container(
+                                                            decoration:
+                                                                BoxDecoration(
+                                                                    shape: BoxShape
+                                                                        .circle,
+                                                                    color: Colors
+                                                                        .white),
+                                                            child:
+                                                                GestureDetector(
+                                                              onTap: () {
+                                                                deliveryImages
+                                                                    .removeAt(
+                                                                        i);
+                                                                setState(() {});
+                                                              },
+                                                              child: Icon(
+                                                                Icons.close,
+                                                                color: Theme.of(
+                                                                        context)
+                                                                    .primaryColor,
+                                                                size: 22,
+                                                              ),
+                                                            ),
+                                                          ))
+                                                    ],
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  width: 3,
+                                                )
+                                              ],
+                                            );
+                                          }),
                                     )
                                   ],
-                                );
-                              }),
-                        )
-                      ],
-                    ),
-                  ),
-                  Visibility(
-                    visible: widget.ordersData?.payType == 3,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          "Amount",
-                          style: TextStyles().subTitle(
-                            fontSize: 15,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 15,
+                              ),
+                            ],
                           ),
                         ),
-                        Text(widget.ordersData?.amount ?? ""),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Package Details",
+                                    style: TextStyles().subTitle(
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        "Item Name: ",
+                                        style: TextStyles().subTitle(
+                                            fontSize: 13,
+                                            fontWeight: FontWeight.w600),
+                                      ),
+                                      Text(
+                                        widget.ordersData?.packageName ?? "",
+                                        style: TextStyles().subTitle(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        "Package Type: ",
+                                        style: TextStyles().subTitle(
+                                            fontSize: 13,
+                                            fontWeight: FontWeight.w600),
+                                      ),
+                                      Text(
+                                        widget.ordersData?.packageCategory ??
+                                            "",
+                                        style: TextStyles().subTitle(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        "Delivery Vehicle: ",
+                                        style: TextStyles().subTitle(
+                                            fontSize: 13,
+                                            fontWeight: FontWeight.w600),
+                                      ),
+                                      Text(
+                                        widget.ordersData?.vehicleCategory ??
+                                            "",
+                                        style: TextStyles().subTitle(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(right: 25, bottom: 35),
+                              child: Image.asset(
+                                "assets/images/package.png",
+                                height: 60,
+                                color: Theme.of(context).primaryColor,
+                              ),
+                            )
+                          ],
+                        ),
                         SizedBox(
-                          height: 10,
-                        )
+                          height: 20,
+                        ),
+                        Container(
+                          height: 1,
+                          child: Divider(
+                            thickness: 0.1,
+                            color: Colors.black,
+                          ),
+                        ),
+                        Visibility(
+                          visible: widget.ordersData?.payType == 2 ||
+                              widget.ordersData?.payType == 3,
+                          child: Container(
+                            //height: 70,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Row(
+                                  children: [
+                                    Text(
+                                      widget.ordersData?.payType == 2
+                                          ? "Collect Cash at Pickup"
+                                          : "Collect Cash at Delivery",
+                                      style: TextStyles().subTitle(
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                    Spacer(),
+                                    Text(
+                                      "AED ${widget.ordersData?.amount}" ?? "",
+                                      style: TextStyles().subTitle(
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Divider(
+                                  color: Colors.grey,
+                                  thickness: 0.3,
+                                ),
+                                Row(
+                                  children: [
+                                    Text(
+                                      "Total Amount",
+                                      style: TextStyles().subTitle(
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                    Spacer(),
+                                    Text(
+                                      "AED ${widget.ordersData?.actualAmount}" ??
+                                          "",
+                                      style: TextStyles().subTitle(
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height: 35,
-                  ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Package Details",
-                              style: TextStyles().subTitle(
-                                fontSize: 15,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  "Item Name: ",
-                                  style: TextStyles().subTitle(
-                                      fontSize: 13,
-                                      fontWeight: FontWeight.w600),
-                                ),
-                                Text(
-                                  widget.ordersData?.packageName ?? "",
-                                  style: TextStyles().subTitle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w500),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  "Package Type: ",
-                                  style: TextStyles().subTitle(
-                                      fontSize: 13,
-                                      fontWeight: FontWeight.w600),
-                                ),
-                                Text(
-                                  widget.ordersData?.packageCategory ?? "",
-                                  style: TextStyles().subTitle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w500),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  "Delivery Vehicle: ",
-                                  style: TextStyles().subTitle(
-                                      fontSize: 13,
-                                      fontWeight: FontWeight.w600),
-                                ),
-                                Text(
-                                  widget.ordersData?.vehicleCategory ?? "",
-                                  style: TextStyles().subTitle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w500),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(right: 25, bottom: 35),
-                        child: Image.asset(
-                          "assets/images/package.png",
-                          height: 60,
-                          color: Theme.of(context).primaryColor,
-                        ),
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Container(
-                    height: 1,
-                    child: Divider(
-                      thickness: 0.1,
-                      color: Colors.black,
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ),
+                ),
           SizedBox(
             height: 20,
           ),
-          ButtonWidget(
-            onTap: () {
-              if (widget.ordersData?.typeId == 1) {
-                pickUpImages.isNotEmpty && deliveryImages.isNotEmpty
-
-                    //  &&
-                    // (pickUpAmountController.text.isNotEmpty ||
-                    //     deliveryAmountController.text.isNotEmpty)
-                    ? _bloc.pickedUp(
+          Visibility(
+            visible: isLoading == false,
+            child: ButtonWidget(
+              onTap: () {
+                if (widget.ordersData?.statusId == 6) {
+                  showSnackBar(
+                      context: context,
+                      text: "Admin needs to accept this order");
+                }
+                if (widget.ordersData?.typeId == 1) {
+                  pickUpImages.isNotEmpty && widget.ordersData?.statusId == 2
+                      //  &&
+                      // (pickUpAmountController.text.isNotEmpty ||
+                      //     deliveryAmountController.text.isNotEmpty)
+                      ? _bloc.pickedUp(
                           amount: widget.ordersData?.amount ?? "",
                           images: pickUpImages,
                           packageId: widget.ordersData?.id,
-                        ) &&
-                        deliveredBloc.delivered(
-                          packageId: widget.ordersData?.id,
-                          images: deliveryImages,
-                          amount: widget.ordersData?.amount ?? "",
                         )
-                    : widget.ordersData?.statusId == 2
-                        ? _bloc.pickedUp(
-                            amount: widget.ordersData?.amount ?? "",
-                            images: pickUpImages,
-                            packageId: widget.ordersData?.id,
-                          )
-                        : widget.ordersData?.statusId == 3
-                            ? deliveredBloc.delivered(
-                                packageId: widget.ordersData?.id,
-                                images: deliveryImages,
-                                amount: widget.ordersData?.amount ?? "",
-                              )
-                            : () {};
-              }
-              if (widget.ordersData?.typeId == 2) {
-                pickUpImages.isNotEmpty && deliveryImages.isNotEmpty
-                    ? _bloc.shopOrdersPickedUp(
+                      : deliveryImages.isNotEmpty &&
+                              widget.ordersData?.statusId == 3
+                          ? deliveredBloc.delivered(
+                              packageId: widget.ordersData?.id,
+                              images: deliveryImages,
+                              amount: widget.ordersData?.amount ?? "",
+                            )
+                          : () {};
+                }
+                if (widget.ordersData?.typeId == 2) {
+                  pickUpImages.isNotEmpty && widget.ordersData?.statusId == 3
+                      //  &&
+                      // (pickUpAmountController.text.isNotEmpty ||
+                      //     deliveryAmountController.text.isNotEmpty)
+                      ? _bloc.shopOrdersPickedUp(
                           amount: widget.ordersData?.amount ?? "",
                           images: pickUpImages,
                           packageId: widget.ordersData?.id,
-                        ) &&
-                        deliveredBloc.shopOrdersdelivered(
-                          packageId: widget.ordersData?.id,
-                          images: deliveryImages,
-                          amount: widget.ordersData?.amount ?? "",
                         )
-                    : widget.ordersData?.statusId == 2
-                        ? _bloc.shopOrdersPickedUp(
-                            amount: widget.ordersData?.amount ?? "",
-                            images: pickUpImages,
-                            packageId: widget.ordersData?.id,
-                          )
-                        : widget.ordersData?.statusId == 3
-                            ? deliveredBloc.shopOrdersdelivered(
-                                packageId: widget.ordersData?.id,
-                                images: deliveryImages,
-                                amount: widget.ordersData?.amount ?? "",
-                              )
-                            : () {};
-              }
-            },
-            label: widget.ordersData?.statusId == 2
-                ? "PICKUP"
-                : widget.ordersData?.statusId == 3
-                    ? "DELIVER"
-                    : "",
-            borderRadius: 15,
-            width: 300,
-            height: 55,
+                      : deliveryImages.isNotEmpty &&
+                              widget.ordersData?.statusId == 3
+                          ? deliveredBloc.shopOrdersdelivered(
+                              packageId: widget.ordersData?.id,
+                              images: deliveryImages,
+                              amount: widget.ordersData?.amount ?? "",
+                            )
+                          : () {};
+                }
+              },
+              label: widget.ordersData?.statusId == 6
+                  ? "Awaiting Payment"
+                  : widget.ordersData?.statusId == 2
+                      ? "Pick Up"
+                      : widget.ordersData?.statusId == 3
+                          ? "Deliver"
+                          : "",
+              borderRadius: 15,
+              width: 300,
+              height: 55,
+            ),
           )
         ],
       )),

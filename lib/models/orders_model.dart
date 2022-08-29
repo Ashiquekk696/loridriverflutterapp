@@ -53,16 +53,22 @@ class BookingsModel {
   String? deliveryTime;
   String? deliveryEmail;
   String? deliveryPhone;
-  String? deliveryApartment;
-  String? deliveryBuilding;
+  String? deliveryAddressType;
+  String? deliveryAddressStreet;
+  String? deliveryAddressNo;
+  String? deliveryAddressBuilding;
+  String? deliveryAddressFloor;
+  String? deliveryAddressName;
+  String? deliveryName;
   String? deliveryLatitude;
   String? deliveryLongitude;
   String? deliveryAddress;
   String? pickupEmail;
   String? pickupPhone;
   String? status;
-  String? pickupApartment;
-  String? pickupBuilding;
+
+  String? pickupAddressType;
+  String? pickupAddressNo;
   String? pickupLatitude;
   String? pickupLongitude;
   String? pickupAddress;
@@ -73,6 +79,11 @@ class BookingsModel {
   String? weight;
   String? dimension;
   String? pickupCity;
+  String? pickUpAddressBuilding;
+  String? pickUpAddressFloor;
+  String? pickUpAddressName;
+  String? pickUpName;
+  String? pickupAddressStreet;
   String? deliveryCity;
   bool? pickup;
   bool? delivery;
@@ -106,6 +117,9 @@ class BookingsModel {
       this.packageName,
       this.amount,
       this.actualAmount,
+      this.deliveryAddressBuilding,
+      this.deliveryAddressFloor,
+      this.deliveryAddressName,
       this.lowestBid,
       this.active,
       this.billingId,
@@ -115,18 +129,25 @@ class BookingsModel {
       this.deliveryTime,
       this.deliveryEmail,
       this.deliveryPhone,
-      this.deliveryApartment,
-      this.deliveryBuilding,
+      this.deliveryAddressType,
+      this.deliveryAddressStreet,
+      this.deliveryAddressNo,
       this.deliveryLatitude,
       this.deliveryLongitude,
       this.deliveryAddress,
       this.pickupEmail,
       this.pickupPhone,
       this.status,
-      this.pickupApartment,
-      this.pickupBuilding,
+      this.pickupAddressType,
+      this.pickupAddressNo,
       this.pickupLatitude,
+      this.pickupAddressStreet,
       this.pickupLongitude,
+      this.pickUpAddressBuilding,
+      this.pickUpAddressFloor,
+      this.deliveryName,
+      this.pickUpName,
+      this.pickUpAddressName,
       this.pickupAddress,
       this.packageImage,
       this.vehicleImage,
@@ -166,12 +187,15 @@ class BookingsModel {
     pickupDate = json['pickup_date'];
     deliveryDate = json['delivery_date'];
     packageName = json['package_name'];
-
+    amount = json['amount'];
+    actualAmount = json['actual_amount'];
     lowestBid = json['lowest_bid'];
     active = json['active'];
     billingId = json['billing_id'];
+    deliveryAddressStreet = json['delivery_address_street'];
     payType = json['pay_type'];
     cancelReview = json['cancel_review'];
+    pickupAddressStreet = json['pickup_address_street'];
     statusCode = json['status_code'];
     response = json['response'];
     createdAt = json['created_at'];
@@ -183,19 +207,30 @@ class BookingsModel {
     deliveryTime = json['delivery_time'];
     deliveryEmail = json['delivery_email'];
     deliveryPhone = json['delivery_phone'];
-    deliveryApartment = json['delivery_apartment'];
-    deliveryBuilding = json['delivery_building'];
+    deliveryAddressType = json['delivery_address_type'];
+    deliveryAddressNo = json['delivery_address_no'];
+    deliveryAddressBuilding = json["delivery_address_building"];
+    deliveryAddressFloor = json["delivery_address_floor"];
+    deliveryAddressName = json["delivery_address_name"];
+    //deliveryName = json["delivery_name"];
+
     deliveryLatitude = json['delivery_latitude'];
     deliveryLongitude = json['delivery_longitude'];
     deliveryAddress = json['delivery_address'];
     pickupEmail = json['pickup_email'];
     pickupPhone = json['pickup_phone'];
     status = json['status'];
-    pickupApartment = json['pickup_apartment'];
-    pickupBuilding = json['pickup_building'];
+    pickupAddressType = json['pickup_address_type'];
+    pickupAddressNo = json['pickup_address_no'];
     pickupLatitude = json['pickup_latitude'];
     pickupLongitude = json['pickup_longitude'];
     pickupAddress = json['pickup_address'];
+    pickupAddressStreet = json["pickup_address_street"];
+    pickUpAddressFloor = json["pickup_address_floor"];
+    pickUpAddressBuilding = json['pickup_address_building'];
+    pickUpAddressName = json['pickup_address_name'];
+    pickUpName = json["pickup_name"];
+    deliveryName = json["delivery_name"];
     packageImage = json['package_image'];
     vehicleImage = json['vehicle_image'];
     vehicleCategory = json['vehicle_category'];

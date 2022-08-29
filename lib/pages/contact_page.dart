@@ -6,6 +6,7 @@ import 'package:loridriverflutterapp/widgets/snackbar_widget.dart';
 
 import '../helpers/api_helper.dart';
 import '../widgets/bottom_bar_widget.dart';
+import '../widgets/toast_widget.dart';
 
 class ContactPage extends StatefulWidget {
   const ContactPage({Key? key}) : super(key: key);
@@ -27,9 +28,8 @@ class _ContactPageState extends State<ContactPage> {
         case Status.LOADING:
           break;
         case Status.COMPLETED:
-          showSnackBar(context: context, text: "Thank you ");
+          showToast(msg: "Thank You");
 
-          print(event.message);
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => MainBottomNavBar()));
           setState(() {});
@@ -57,10 +57,21 @@ class _ContactPageState extends State<ContactPage> {
     });
   }
 
+  showToast({msg}) async {
+    await toastWidget(
+        bgColor: Colors.grey, textColor: Colors.white, msg: msg ?? "");
+  }
+
   @override
   void initState() {
     contactUs();
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    bloc.dispose();
+    super.dispose();
   }
 
   @override

@@ -15,10 +15,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         themeMode: ThemeMode.light,
         title: 'Flutter Demo',
         theme: Themes().lightTheme,
         darkTheme: Themes().darkTheme,
-        home: MainBottomNavBar());
+        home: LoginPage());
   }
 }

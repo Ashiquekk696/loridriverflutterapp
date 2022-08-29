@@ -49,7 +49,14 @@ class _OrdersPageState extends State<OrdersPage> {
   }
 
   @override
+  void dispose() {
+    _bloc.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    //print(ordersModel?.bookings?[0].deliveryName);
     return Scaffold(
       appBar: LoriAppBar(),
       body: Container(
@@ -66,7 +73,9 @@ class _OrdersPageState extends State<OrdersPage> {
                         CircularIndicator(),
                       ],
                     )
-                  : ordersModel?.bookings?.length == 0
+                  : ordersModel?.bookings == null ||
+                          (ordersModel?.bookings ?? []).isEmpty ||
+                          ordersModel?.bookings?.length == 0
                       ? Column(
                           children: [
                             SizedBox(
@@ -131,47 +140,83 @@ class _OrdersPageState extends State<OrdersPage> {
                                                               FontWeight.w600),
                                                     ),
                                                   ),
-                                                  ButtonWidget(
-                                                    fontSize: 13,
-                                                    onTap: () {
-                                                      ordersModel
-                                                                  ?.bookings?[
-                                                                      index]
-                                                                  .statusId ==
-                                                              4
-                                                          ? null
-                                                          : Navigator.push(
-                                                              context,
-                                                              MaterialPageRoute(
-                                                                  builder:
-                                                                      (context) =>
-                                                                          PickUpPage(
-                                                                            ordersData:
-                                                                                ordersModel?.bookings?[index],
-                                                                          )));
-                                                    },
-                                                    label: ordersModel
-                                                                ?.bookings?[
-                                                                    index]
-                                                                .statusId ==
-                                                            2
-                                                        ? "PICKUP"
-                                                        : ordersModel
-                                                                    ?.bookings?[
-                                                                        index]
-                                                                    .statusId ==
-                                                                3
-                                                            ? "DELIVER"
-                                                            : ordersModel
+                                                  Visibility(
+                                                    visible: ordersModel
+                                                            ?.bookings?[index]
+                                                            .pickup !=
+                                                        false,
+                                                    child: ordersModel
                                                                         ?.bookings?[
                                                                             index]
                                                                         .statusId ==
-                                                                    4
-                                                                ? "DELIVERED"
-                                                                : "",
-                                                    height: 40,
-                                                    width: 100,
-                                                    borderRadius: 5,
+                                                                    3 &&
+                                                                ordersModel
+                                                                        ?.bookings?[
+                                                                            index]
+                                                                        .delivery ==
+                                                                    false ||
+                                                            ordersModel
+                                                                    ?.bookings?[
+                                                                        index]
+                                                                    .statusId ==
+                                                                4
+                                                        ? Container(
+                                                            height: 30,
+                                                            width: 30,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                                    shape: BoxShape
+                                                                        .circle,
+                                                                    color: Colors
+                                                                        .green),
+                                                            child: Center(
+                                                              child: Icon(
+                                                                Icons.done,
+                                                                color: Colors
+                                                                    .white,
+                                                                size: 25,
+                                                              ),
+                                                            ),
+                                                          )
+                                                        : ButtonWidget(
+                                                            fontSize: 13,
+                                                            onTap: () {
+                                                              print(
+                                                                  "amount is ${ordersModel?.bookings?[index].amount}");
+                                                              ordersModel?.bookings?[index].statusId ==
+                                                                          2 ||
+                                                                      ordersModel
+                                                                              ?.bookings?[index]
+                                                                              .statusId ==
+                                                                          3
+                                                                  ? Navigator.push(
+                                                                      context,
+                                                                      MaterialPageRoute(
+                                                                          builder: (context) => PickUpPage(
+                                                                                ordersData: ordersModel?.bookings?[index],
+                                                                              )))
+                                                                  : null;
+                                                            },
+                                                            label: ordersModel
+                                                                        ?.bookings?[
+                                                                            index]
+                                                                        .statusId ==
+                                                                    2
+                                                                ? "Pick Up"
+                                                                : ordersModel
+                                                                            ?.bookings?[
+                                                                                index]
+                                                                            .statusId ==
+                                                                        3
+                                                                    ? "Deliver"
+                                                                    : ordersModel
+                                                                            ?.bookings?[index]
+                                                                            .status ??
+                                                                        "",
+                                                            height: 40,
+                                                            width: 100,
+                                                            borderRadius: 5,
+                                                          ),
                                                   )
                                                 ],
                                               ),

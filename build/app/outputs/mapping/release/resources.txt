@@ -657,7 +657,6 @@ Referenced Strings:
   HAS_ENABLED_STATE
   HAS_IMPLICIT_SCROLLING
   HAS_TOGGLED_STATE
-  HC_PLATFORM_VIEW
   HEAD
   HEAVY_IMPACT
   HIDE
@@ -1066,6 +1065,7 @@ Referenced Strings:
   PK
   PL
   PLAIN_TEXT
+  PLATFORM_VIEW
   PLE
   PM
   POLL_FAILED
@@ -1096,12 +1096,14 @@ Referenced Strings:
   Pixel
   PlatformChannel
   PlatformPlugin
+  PlatformViewWrapper
   PlatformViewsChannel
   PlatformViewsController
   PlaybackDurationRemaining
   PlaybackRate
   Podcast
   Polka
+  PonnamKarthik/fluttertoast
   Pop
   Pop/Funk
   Pranks
@@ -1515,7 +1517,6 @@ Referenced Strings:
   V:
   VALUE
   VC
-  VD_PLATFORM_VIEW
   VE
   VERTICAL
   VG
@@ -1644,7 +1645,6 @@ Referenced Strings:
   adapter
   addObserver
   addSuppressed
-  addView
   address
   addressCity
   addressCountry
@@ -1921,7 +1921,10 @@ Referenced Strings:
   bg_red
   bg_white
   bg_yellow
+  bgcolor
   binding
+  binding.applicationContext
+  binding.binaryMessenger
   birthDateDay
   birthDateFull
   birthDateMonth
@@ -1944,6 +1947,7 @@ Referenced Strings:
   bos
   bounds
   br
+  brieflyShowPassword
   brown
   bs
   buffer
@@ -1973,6 +1977,7 @@ Referenced Strings:
   cache
   cached_engine_id
   cadetblue
+  call
   callback
   callbackInterface
   callbackWrapper
@@ -2229,6 +2234,7 @@ Referenced Strings:
   darkslategrey
   darkturquoise
   darkviolet
+  dart_entrypoint_args
   dash
   data
   databases
@@ -2440,6 +2446,7 @@ Referenced Strings:
   failure
   fallbackMaxPlaybackSpeed
   fallbackMinPlaybackSpeed
+  false
   familyName
   farLeft
   farRight
@@ -2591,6 +2598,7 @@ Referenced Strings:
   grabbing
   grand
   grantedScopes
+  gravity
   gray
   gre
   green
@@ -2694,8 +2702,10 @@ Referenced Strings:
   invisible_actions
   invokeSuspend
   io.flutter.Entrypoint
+  io.flutter.EntrypointUri
   io.flutter.InitialRoute
   io.flutter.embedding.android.EnableSk...
+  io.flutter.embedding.android.LeakVM
   io.flutter.embedding.android.NormalTheme
   io.flutter.embedding.android.OldGenHe...
   io.flutter.embedding.android.SplashSc...
@@ -2854,6 +2864,7 @@ Referenced Strings:
   le_x6
   left
   lemonchiffon
+  length
   libapp.so
   libflutter.so
   licenseUrl
@@ -2910,6 +2921,7 @@ Referenced Strings:
   mOnKeyListener
   mServedView
   mStableInsets
+  mToast
   mVisibleInsets
   mac
   machuca
@@ -2956,6 +2968,7 @@ Referenced Strings:
   memoryPressure
   message
   messageData
+  messenger
   metaState
   metadata
   metadataInterval
@@ -2998,6 +3011,7 @@ Referenced Strings:
   ms
   ms01
   ms:laurl
+  msg
   mspr:pro
   multiRowAlign
   my
@@ -3055,6 +3069,7 @@ Referenced Strings:
   oemFeature
   oemFeature.bounds
   off
+  offset
   oldText
   oldlace
   olive
@@ -3251,8 +3266,6 @@ Referenced Strings:
   remoteInputs
   remove
   removeObserver
-  removeView
-  removeViewImmediate
   repeat
   repeatCount
   requestAudioFocus
@@ -3386,6 +3399,8 @@ Referenced Strings:
   shear
   short
   show
+  showToast
+  show_password
   showsUserInterface
   shuffleMode
   shuffleOrder
@@ -3501,6 +3516,7 @@ Referenced Strings:
   textDecoration
   textEmphasis
   textScaleFactor
+  textcolor
   texture
   textureId
   this$0
@@ -3524,6 +3540,7 @@ Referenced Strings:
   tokenId
   tomato
   tooltip
+  top
   touch
   trackCameraPosition
   tracker
@@ -3558,7 +3575,6 @@ Referenced Strings:
   update
   updatePosition
   updateTime
-  updateViewLayout
   upperFrequency
   uri
   url
@@ -3579,7 +3595,6 @@ Referenced Strings:
   useWebView
   user
   username
-  usesVirtualDisplay
   v
   v2
   value
@@ -3668,7 +3683,7 @@ Marking integer:cancel_button_image_alpha:2131099648 used because its prefix mat
 Marking styleable:SplitPlaceholderRule:-1 used because its prefix matches string pool constant SplitPlaceholderRule
 Marking attr:shortcutMatchRequired:2130772015 used because its prefix matches string pool constant short
 Marking attr:primaryActivityName:2130772010 used because its prefix matches string pool constant primary
-Marking color:primary_text_default_material_dark:2130837520 used because its prefix matches string pool constant primary
+Marking color:primary_text_default_material_dark:2130837521 used because its prefix matches string pool constant primary
 Marking id:italic:2131034168 used because its prefix matches string pool constant italic
 Marking string:pause_button_content_description:2131361820 used because its prefix matches string pool constant pause
 Marking id:right_icon:2131034185 used because its prefix matches string pool constant right
@@ -3686,20 +3701,20 @@ Marking attr:mapId:2130772006 used because its prefix matches string pool consta
 Marking attr:mapType:2130772007 used because its prefix matches string pool constant map
 Marking attr:backgroundColor:2130771973 used because its prefix matches string pool constant background
 Marking id:end_padder:2131034161 used because its prefix matches string pool constant end
-Marking drawable:media_session_service_notification_ic_music_note:2130968598 used because its prefix matches string pool constant media
-Marking drawable:media_session_service_notification_ic_pause:2130968599 used because its prefix matches string pool constant media
-Marking drawable:media_session_service_notification_ic_play:2130968600 used because its prefix matches string pool constant media
-Marking drawable:media_session_service_notification_ic_skip_to_next:2130968601 used because its prefix matches string pool constant media
-Marking drawable:media_session_service_notification_ic_skip_to_previous:2130968602 used because its prefix matches string pool constant media
+Marking drawable:media_session_service_notification_ic_music_note:2130968601 used because its prefix matches string pool constant media
+Marking drawable:media_session_service_notification_ic_pause:2130968602 used because its prefix matches string pool constant media
+Marking drawable:media_session_service_notification_ic_play:2130968603 used because its prefix matches string pool constant media
+Marking drawable:media_session_service_notification_ic_skip_to_next:2130968604 used because its prefix matches string pool constant media
+Marking drawable:media_session_service_notification_ic_skip_to_previous:2130968605 used because its prefix matches string pool constant media
 Marking id:media_actions:2131034178 used because its prefix matches string pool constant media
 Marking id:media_controller_compat_view_tag:2131034179 used because its prefix matches string pool constant media
 Marking string:default_notification_channel_name:2131361810 used because its prefix matches string pool constant default
 Marking attr:colorScheme:2130771984 used because its prefix matches string pool constant color
 Marking string:play_button_content_description:2131361821 used because its prefix matches string pool constant play
 Marking attr:mapType:2130772007 used because its prefix matches string pool constant mapType
-Marking color:notification_action_color_filter:2130837517 used because its prefix matches string pool constant notification
-Marking color:notification_icon_bg_color:2130837518 used because its prefix matches string pool constant notification
-Marking color:notification_material_background_media_default_color:2130837519 used because its prefix matches string pool constant notification
+Marking color:notification_action_color_filter:2130837518 used because its prefix matches string pool constant notification
+Marking color:notification_icon_bg_color:2130837519 used because its prefix matches string pool constant notification
+Marking color:notification_material_background_media_default_color:2130837520 used because its prefix matches string pool constant notification
 Marking dimen:notification_action_icon_size:2130903047 used because its prefix matches string pool constant notification
 Marking dimen:notification_action_text_size:2130903048 used because its prefix matches string pool constant notification
 Marking dimen:notification_big_circle_margin:2130903049 used because its prefix matches string pool constant notification
@@ -3715,17 +3730,17 @@ Marking dimen:notification_small_icon_size_as_large:2130903058 used because its 
 Marking dimen:notification_subtext_size:2130903059 used because its prefix matches string pool constant notification
 Marking dimen:notification_top_pad:2130903060 used because its prefix matches string pool constant notification
 Marking dimen:notification_top_pad_large_text:2130903061 used because its prefix matches string pool constant notification
-Marking drawable:notification_action_background:2130968603 used because its prefix matches string pool constant notification
-Marking drawable:notification_bg:2130968604 used because its prefix matches string pool constant notification
-Marking drawable:notification_bg_low:2130968605 used because its prefix matches string pool constant notification
-Marking drawable:notification_bg_low_normal:2130968606 used because its prefix matches string pool constant notification
-Marking drawable:notification_bg_low_pressed:2130968607 used because its prefix matches string pool constant notification
-Marking drawable:notification_bg_normal:2130968608 used because its prefix matches string pool constant notification
-Marking drawable:notification_bg_normal_pressed:2130968609 used because its prefix matches string pool constant notification
-Marking drawable:notification_icon_background:2130968610 used because its prefix matches string pool constant notification
-Marking drawable:notification_template_icon_bg:2130968611 used because its prefix matches string pool constant notification
-Marking drawable:notification_template_icon_low_bg:2130968612 used because its prefix matches string pool constant notification
-Marking drawable:notification_tile_bg:2130968613 used because its prefix matches string pool constant notification
+Marking drawable:notification_action_background:2130968606 used because its prefix matches string pool constant notification
+Marking drawable:notification_bg:2130968607 used because its prefix matches string pool constant notification
+Marking drawable:notification_bg_low:2130968608 used because its prefix matches string pool constant notification
+Marking drawable:notification_bg_low_normal:2130968609 used because its prefix matches string pool constant notification
+Marking drawable:notification_bg_low_pressed:2130968610 used because its prefix matches string pool constant notification
+Marking drawable:notification_bg_normal:2130968611 used because its prefix matches string pool constant notification
+Marking drawable:notification_bg_normal_pressed:2130968612 used because its prefix matches string pool constant notification
+Marking drawable:notification_icon_background:2130968613 used because its prefix matches string pool constant notification
+Marking drawable:notification_template_icon_bg:2130968614 used because its prefix matches string pool constant notification
+Marking drawable:notification_template_icon_low_bg:2130968615 used because its prefix matches string pool constant notification
+Marking drawable:notification_tile_bg:2130968616 used because its prefix matches string pool constant notification
 Marking id:notification_background:2131034182 used because its prefix matches string pool constant notification
 Marking id:notification_main_column:2131034183 used because its prefix matches string pool constant notification
 Marking id:notification_main_column_container:2131034184 used because its prefix matches string pool constant notification
@@ -3904,32 +3919,32 @@ Marking id:icon:2131034164 used because its prefix matches string pool constant 
 Marking id:icon_group:2131034165 used because its prefix matches string pool constant icon
 Marking id:icon_only:2131034166 used because its prefix matches string pool constant icon
 Marking id:auto:2131034155 used because its prefix matches string pool constant auto
-Marking drawable:launch_background:2130968597 used because its prefix matches string pool constant launch
+Marking drawable:launch_background:2130968600 used because its prefix matches string pool constant launch
 Marking attr:queryPatterns:2130772011 used because its prefix matches string pool constant query
 Resource Reference Graph:
 color:common_google_signin_btn_text_dark:2130837506 => [color:common_google_signin_btn_text_dark_disabled:2130837508, color:common_google_signin_btn_text_dark_pressed:2130837510, color:common_google_signin_btn_text_dark_focused:2130837509, color:common_google_signin_btn_text_dark_default:2130837507]
 color:common_google_signin_btn_text_light:2130837511 => [color:common_google_signin_btn_text_light_disabled:2130837513, color:common_google_signin_btn_text_light_pressed:2130837515, color:common_google_signin_btn_text_light_focused:2130837514, color:common_google_signin_btn_text_light_default:2130837512]
-color:notification_action_color_filter:2130837517 => [color:androidx_core_secondary_text_default_material_light:2130837505]
+color:notification_action_color_filter:2130837518 => [color:androidx_core_secondary_text_default_material_light:2130837505]
 dimen:notification_media_narrow_margin:2130903054 => [dimen:notification_content_margin_start:2130903050]
 drawable:common_google_signin_btn_icon_dark:2130968577 => [drawable:common_google_signin_btn_icon_disabled:2130968581, drawable:common_google_signin_btn_icon_dark_focused:2130968578, drawable:common_google_signin_btn_icon_dark_normal:2130968579]
 drawable:common_google_signin_btn_icon_dark_focused:2130968578 => [drawable:common_google_signin_btn_icon_dark_normal:2130968579]
-drawable:common_google_signin_btn_icon_dark_normal:2130968579 => [drawable:common_google_signin_btn_icon_dark_normal_background:2130968580, drawable:googleg_standard_color_18:2130968596]
-drawable:common_google_signin_btn_icon_disabled:2130968581 => [drawable:googleg_disabled_color_18:2130968595]
+drawable:common_google_signin_btn_icon_dark_normal:2130968579 => [drawable:common_google_signin_btn_icon_dark_normal_background:2130968580, drawable:googleg_standard_color_18:2130968597]
+drawable:common_google_signin_btn_icon_disabled:2130968581 => [drawable:googleg_disabled_color_18:2130968596]
 drawable:common_google_signin_btn_icon_light:2130968582 => [drawable:common_google_signin_btn_icon_disabled:2130968581, drawable:common_google_signin_btn_icon_light_focused:2130968583, drawable:common_google_signin_btn_icon_light_normal:2130968584]
 drawable:common_google_signin_btn_icon_light_focused:2130968583 => [drawable:common_google_signin_btn_icon_light_normal:2130968584]
-drawable:common_google_signin_btn_icon_light_normal:2130968584 => [drawable:common_google_signin_btn_icon_light_normal_background:2130968585, drawable:googleg_standard_color_18:2130968596]
+drawable:common_google_signin_btn_icon_light_normal:2130968584 => [drawable:common_google_signin_btn_icon_light_normal_background:2130968585, drawable:googleg_standard_color_18:2130968597]
 drawable:common_google_signin_btn_text_dark:2130968586 => [drawable:common_google_signin_btn_text_disabled:2130968590, drawable:common_google_signin_btn_text_dark_focused:2130968587, drawable:common_google_signin_btn_text_dark_normal:2130968588]
 drawable:common_google_signin_btn_text_dark_focused:2130968587 => [drawable:common_google_signin_btn_text_dark_normal:2130968588]
-drawable:common_google_signin_btn_text_dark_normal:2130968588 => [drawable:common_google_signin_btn_text_dark_normal_background:2130968589, drawable:googleg_standard_color_18:2130968596]
-drawable:common_google_signin_btn_text_disabled:2130968590 => [drawable:googleg_disabled_color_18:2130968595]
+drawable:common_google_signin_btn_text_dark_normal:2130968588 => [drawable:common_google_signin_btn_text_dark_normal_background:2130968589, drawable:googleg_standard_color_18:2130968597]
+drawable:common_google_signin_btn_text_disabled:2130968590 => [drawable:googleg_disabled_color_18:2130968596]
 drawable:common_google_signin_btn_text_light:2130968591 => [drawable:common_google_signin_btn_text_disabled:2130968590, drawable:common_google_signin_btn_text_light_focused:2130968592, drawable:common_google_signin_btn_text_light_normal:2130968593]
 drawable:common_google_signin_btn_text_light_focused:2130968592 => [drawable:common_google_signin_btn_text_light_normal:2130968593]
-drawable:common_google_signin_btn_text_light_normal:2130968593 => [drawable:common_google_signin_btn_text_light_normal_background:2130968594, drawable:googleg_standard_color_18:2130968596]
-drawable:notification_action_background:2130968603 => [color:androidx_core_ripple_material_light:2130837504, dimen:compat_button_inset_vertical_material:2130903041, dimen:compat_button_inset_horizontal_material:2130903040, dimen:compat_control_corner_material:2130903044, dimen:compat_button_padding_vertical_material:2130903043, dimen:compat_button_padding_horizontal_material:2130903042]
-drawable:notification_bg:2130968604 => [drawable:notification_bg_normal_pressed:2130968609, drawable:notification_bg_normal:2130968608]
-drawable:notification_bg_low:2130968605 => [drawable:notification_bg_low_pressed:2130968607, drawable:notification_bg_low_normal:2130968606]
-drawable:notification_icon_background:2130968610 => [color:notification_icon_bg_color:2130837518]
-drawable:notification_tile_bg:2130968613 => [drawable:notify_panel_notification_icon_bg:2130968614]
+drawable:common_google_signin_btn_text_light_normal:2130968593 => [drawable:common_google_signin_btn_text_light_normal_background:2130968594, drawable:googleg_standard_color_18:2130968597]
+drawable:notification_action_background:2130968606 => [color:androidx_core_ripple_material_light:2130837504, dimen:compat_button_inset_vertical_material:2130903041, dimen:compat_button_inset_horizontal_material:2130903040, dimen:compat_control_corner_material:2130903044, dimen:compat_button_padding_vertical_material:2130903043, dimen:compat_button_padding_horizontal_material:2130903042]
+drawable:notification_bg:2130968607 => [drawable:notification_bg_normal_pressed:2130968612, drawable:notification_bg_normal:2130968611]
+drawable:notification_bg_low:2130968608 => [drawable:notification_bg_low_pressed:2130968610, drawable:notification_bg_low_normal:2130968609]
+drawable:notification_icon_background:2130968613 => [color:notification_icon_bg_color:2130837519]
+drawable:notification_tile_bg:2130968616 => [drawable:notify_panel_notification_icon_bg:2130968617]
 layout:notification_action:2131165185 => [style:Widget_Compat_NotificationActionContainer:2131427340, dimen:notification_action_icon_size:2130903047, style:Widget_Compat_NotificationActionText:2131427341]
 layout:notification_action_tombstone:2131165186 => [style:Widget_Compat_NotificationActionContainer:2131427340, dimen:notification_action_icon_size:2130903047, style:Widget_Compat_NotificationActionText:2131427341]
 layout:notification_template_big_media:2131165189 => [dimen:notification_large_icon_height:2130903051, dimen:notification_large_icon_width:2130903052, layout:notification_template_icon_group:2131165194, layout:notification_media_cancel_action:2131165188, id:cancel_action:2131034157, layout:notification_template_lines_media:2131165195, id:media_actions:2131034178]
@@ -3943,17 +3958,19 @@ layout:notification_template_media:2131165196 => [dimen:notification_large_icon_
 layout:notification_template_media_custom:2131165197 => [dimen:notification_large_icon_height:2130903051, dimen:notification_large_icon_width:2130903052, layout:notification_template_icon_group:2131165194, id:cancel_action:2131034157, dimen:notification_main_column_padding_top:2130903053, dimen:notification_content_margin_start:2130903050, dimen:notification_right_side_padding_top:2130903056, style:TextAppearance_Compat_Notification_Time_Media:2131427337, style:TextAppearance_Compat_Notification_Info_Media:2131427332, layout:notification_media_cancel_action:2131165188]
 layout:notification_template_part_chronometer:2131165198 => [style:TextAppearance_Compat_Notification_Time:2131427336]
 layout:notification_template_part_time:2131165199 => [style:TextAppearance_Compat_Notification_Time:2131427336]
-style:LaunchTheme:2131427328 => [drawable:launch_background:2130968597]
+layout:toast_custom:2131165200 => [drawable:corner:2130968595]
+mipmap:ic_launcher:2131296256 => [color:ic_launcher_background:2130837517, drawable:ic_launcher_foreground:2130968599]
+style:LaunchTheme:2131427328 => [drawable:launch_background:2130968600]
 style:NormalTheme:2131427329 => [attr:android_colorBackground:-1]
 style:TextAppearance_Compat_Notification_Info:2131427331 => [style:TextAppearance_Compat_Notification:2131427330, style:TextAppearance_Compat:-1, style:TextAppearance:-1]
-style:TextAppearance_Compat_Notification_Info_Media:2131427332 => [style:TextAppearance_Compat_Notification_Info:2131427331, style:TextAppearance_Compat_Notification:2131427330, style:TextAppearance_Compat:-1, style:TextAppearance:-1, color:secondary_text_default_material_dark:2130837521]
+style:TextAppearance_Compat_Notification_Info_Media:2131427332 => [style:TextAppearance_Compat_Notification_Info:2131427331, style:TextAppearance_Compat_Notification:2131427330, style:TextAppearance_Compat:-1, style:TextAppearance:-1, color:secondary_text_default_material_dark:2130837522]
 style:TextAppearance_Compat_Notification_Line2:2131427333 => [style:TextAppearance_Compat_Notification_Info:2131427331]
 style:TextAppearance_Compat_Notification_Line2_Media:2131427334 => [style:TextAppearance_Compat_Notification_Info_Media:2131427332]
-style:TextAppearance_Compat_Notification_Media:2131427335 => [style:TextAppearance_Compat_Notification:2131427330, style:TextAppearance_Compat:-1, style:TextAppearance:-1, color:secondary_text_default_material_dark:2130837521]
+style:TextAppearance_Compat_Notification_Media:2131427335 => [style:TextAppearance_Compat_Notification:2131427330, style:TextAppearance_Compat:-1, style:TextAppearance:-1, color:secondary_text_default_material_dark:2130837522]
 style:TextAppearance_Compat_Notification_Time:2131427336 => [style:TextAppearance_Compat_Notification:2131427330, style:TextAppearance_Compat:-1, style:TextAppearance:-1]
-style:TextAppearance_Compat_Notification_Time_Media:2131427337 => [style:TextAppearance_Compat_Notification_Time:2131427336, style:TextAppearance_Compat_Notification:2131427330, style:TextAppearance_Compat:-1, style:TextAppearance:-1, color:secondary_text_default_material_dark:2130837521]
-style:TextAppearance_Compat_Notification_Title_Media:2131427339 => [style:TextAppearance_Compat_Notification_Title:2131427338, style:TextAppearance_Compat_Notification:2131427330, style:TextAppearance_Compat:-1, style:TextAppearance:-1, color:primary_text_default_material_dark:2130837520]
-style:Widget_Compat_NotificationActionContainer:2131427340 => [drawable:notification_action_background:2130968603]
+style:TextAppearance_Compat_Notification_Time_Media:2131427337 => [style:TextAppearance_Compat_Notification_Time:2131427336, style:TextAppearance_Compat_Notification:2131427330, style:TextAppearance_Compat:-1, style:TextAppearance:-1, color:secondary_text_default_material_dark:2130837522]
+style:TextAppearance_Compat_Notification_Title_Media:2131427339 => [style:TextAppearance_Compat_Notification_Title:2131427338, style:TextAppearance_Compat_Notification:2131427330, style:TextAppearance_Compat:-1, style:TextAppearance:-1, color:primary_text_default_material_dark:2130837521]
+style:Widget_Compat_NotificationActionContainer:2131427340 => [drawable:notification_action_background:2130968606]
 style:Widget_Compat_NotificationActionText:2131427341 => [color:androidx_core_secondary_text_default_material_light:2130837505, dimen:notification_action_text_size:2130903048]
 
 The root reachable resources are:
@@ -3988,10 +4005,10 @@ attr:activityAction:2130771968,
    attr:shortcutMatchRequired:2130772015,
    color:androidx_core_ripple_material_light:2130837504,
    color:androidx_core_secondary_text_default_material_light:2130837505,
-   color:notification_action_color_filter:2130837517,
-   color:notification_icon_bg_color:2130837518,
-   color:notification_material_background_media_default_color:2130837519,
-   color:primary_text_default_material_dark:2130837520,
+   color:notification_action_color_filter:2130837518,
+   color:notification_icon_bg_color:2130837519,
+   color:notification_material_background_media_default_color:2130837520,
+   color:primary_text_default_material_dark:2130837521,
    dimen:notification_action_icon_size:2130903047,
    dimen:notification_action_text_size:2130903048,
    dimen:notification_big_circle_margin:2130903049,
@@ -4008,23 +4025,24 @@ attr:activityAction:2130771968,
    dimen:notification_top_pad:2130903060,
    dimen:notification_top_pad_large_text:2130903061,
    drawable:common_full_open_on_phone:2130968576,
-   drawable:launch_background:2130968597,
-   drawable:media_session_service_notification_ic_music_note:2130968598,
-   drawable:media_session_service_notification_ic_pause:2130968599,
-   drawable:media_session_service_notification_ic_play:2130968600,
-   drawable:media_session_service_notification_ic_skip_to_next:2130968601,
-   drawable:media_session_service_notification_ic_skip_to_previous:2130968602,
-   drawable:notification_action_background:2130968603,
-   drawable:notification_bg:2130968604,
-   drawable:notification_bg_low:2130968605,
-   drawable:notification_bg_low_normal:2130968606,
-   drawable:notification_bg_low_pressed:2130968607,
-   drawable:notification_bg_normal:2130968608,
-   drawable:notification_bg_normal_pressed:2130968609,
-   drawable:notification_icon_background:2130968610,
-   drawable:notification_template_icon_bg:2130968611,
-   drawable:notification_template_icon_low_bg:2130968612,
-   drawable:notification_tile_bg:2130968613,
+   drawable:corner:2130968595,
+   drawable:launch_background:2130968600,
+   drawable:media_session_service_notification_ic_music_note:2130968601,
+   drawable:media_session_service_notification_ic_pause:2130968602,
+   drawable:media_session_service_notification_ic_play:2130968603,
+   drawable:media_session_service_notification_ic_skip_to_next:2130968604,
+   drawable:media_session_service_notification_ic_skip_to_previous:2130968605,
+   drawable:notification_action_background:2130968606,
+   drawable:notification_bg:2130968607,
+   drawable:notification_bg_low:2130968608,
+   drawable:notification_bg_low_normal:2130968609,
+   drawable:notification_bg_low_pressed:2130968610,
+   drawable:notification_bg_normal:2130968611,
+   drawable:notification_bg_normal_pressed:2130968612,
+   drawable:notification_icon_background:2130968613,
+   drawable:notification_template_icon_bg:2130968614,
+   drawable:notification_template_icon_low_bg:2130968615,
+   drawable:notification_tile_bg:2130968616,
    id:accessibility_action_clickable_span:2131034112,
    id:accessibility_custom_action_0:2131034113,
    id:accessibility_custom_action_1:2131034114,
@@ -4116,6 +4134,7 @@ attr:activityAction:2130771968,
    layout:notification_template_media_custom:2131165197,
    layout:notification_template_part_chronometer:2131165198,
    layout:notification_template_part_time:2131165199,
+   layout:toast_custom:2131165200,
    mipmap:ic_launcher:2131296256,
    string:common_google_play_services_enable_button:2131361792,
    string:common_google_play_services_enable_text:2131361793,
@@ -4182,29 +4201,35 @@ Skipped unused resource res/drawable/common_google_signin_btn_text_disabled.xml:
 Skipped unused resource res/drawable/common_google_signin_btn_text_light.xml: 588 bytes (replaced with small dummy file of size 104 bytes)
 Skipped unused resource res/drawable/common_google_signin_btn_text_light_focused.xml: 892 bytes (replaced with small dummy file of size 104 bytes)
 Skipped unused resource res/drawable/common_google_signin_btn_text_light_normal.xml: 584 bytes (replaced with small dummy file of size 104 bytes)
+Skipped unused resource res/drawable/toast_bg.xml: 700 bytes (replaced with small dummy file of size 104 bytes)
 Skipped unused resource res/drawable-mdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png: 610 bytes (replaced with small dummy file of size 77 bytes)
 Skipped unused resource res/drawable-mdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png: 500 bytes (replaced with small dummy file of size 77 bytes)
 Skipped unused resource res/drawable-mdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png: 615 bytes (replaced with small dummy file of size 77 bytes)
 Skipped unused resource res/drawable-mdpi-v4/common_google_signin_btn_text_light_normal_background.9.png: 465 bytes (replaced with small dummy file of size 77 bytes)
 Skipped unused resource res/drawable-mdpi-v4/googleg_disabled_color_18.png: 281 bytes (replaced with small dummy file of size 67 bytes)
 Skipped unused resource res/drawable-mdpi-v4/googleg_standard_color_18.png: 562 bytes (replaced with small dummy file of size 67 bytes)
+Skipped unused resource res/drawable-mdpi-v4/ic_launcher_background.png: 2420 bytes (replaced with small dummy file of size 67 bytes)
 Skipped unused resource res/drawable-hdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png: 897 bytes (replaced with small dummy file of size 77 bytes)
 Skipped unused resource res/drawable-hdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png: 683 bytes (replaced with small dummy file of size 77 bytes)
 Skipped unused resource res/drawable-hdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png: 960 bytes (replaced with small dummy file of size 77 bytes)
 Skipped unused resource res/drawable-hdpi-v4/common_google_signin_btn_text_light_normal_background.9.png: 694 bytes (replaced with small dummy file of size 77 bytes)
 Skipped unused resource res/drawable-hdpi-v4/googleg_disabled_color_18.png: 410 bytes (replaced with small dummy file of size 67 bytes)
 Skipped unused resource res/drawable-hdpi-v4/googleg_standard_color_18.png: 808 bytes (replaced with small dummy file of size 67 bytes)
+Skipped unused resource res/drawable-hdpi-v4/ic_launcher_background.png: 3918 bytes (replaced with small dummy file of size 67 bytes)
 Skipped unused resource res/drawable-xhdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png: 1032 bytes (replaced with small dummy file of size 77 bytes)
 Skipped unused resource res/drawable-xhdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png: 776 bytes (replaced with small dummy file of size 77 bytes)
 Skipped unused resource res/drawable-xhdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png: 1086 bytes (replaced with small dummy file of size 77 bytes)
 Skipped unused resource res/drawable-xhdpi-v4/common_google_signin_btn_text_light_normal_background.9.png: 808 bytes (replaced with small dummy file of size 77 bytes)
 Skipped unused resource res/drawable-xhdpi-v4/googleg_disabled_color_18.png: 516 bytes (replaced with small dummy file of size 67 bytes)
 Skipped unused resource res/drawable-xhdpi-v4/googleg_standard_color_18.png: 982 bytes (replaced with small dummy file of size 67 bytes)
+Skipped unused resource res/drawable-xhdpi-v4/ic_launcher_background.png: 5594 bytes (replaced with small dummy file of size 67 bytes)
 Skipped unused resource res/drawable-xxhdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png: 1510 bytes (replaced with small dummy file of size 77 bytes)
 Skipped unused resource res/drawable-xxhdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png: 1138 bytes (replaced with small dummy file of size 77 bytes)
 Skipped unused resource res/drawable-xxhdpi-v4/common_google_signin_btn_text_dark_normal_background.9.png: 1638 bytes (replaced with small dummy file of size 77 bytes)
 Skipped unused resource res/drawable-xxhdpi-v4/common_google_signin_btn_text_light_normal_background.9.png: 1255 bytes (replaced with small dummy file of size 77 bytes)
 Skipped unused resource res/drawable-xxhdpi-v4/googleg_disabled_color_18.png: 727 bytes (replaced with small dummy file of size 67 bytes)
 Skipped unused resource res/drawable-xxhdpi-v4/googleg_standard_color_18.png: 1441 bytes (replaced with small dummy file of size 67 bytes)
+Skipped unused resource res/drawable-xxhdpi-v4/ic_launcher_background.png: 9146 bytes (replaced with small dummy file of size 67 bytes)
+Skipped unused resource res/drawable-xxxhdpi-v4/ic_launcher_background.png: 13453 bytes (replaced with small dummy file of size 67 bytes)
 Skipped unused resource res/menu/example_menu.xml: 492 bytes (replaced with small dummy file of size 104 bytes)
 Skipped unused resource res/menu/example_menu2.xml: 492 bytes (replaced with small dummy file of size 104 bytes)

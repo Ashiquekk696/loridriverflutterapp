@@ -41,10 +41,10 @@
         android:name="android.app.Application"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:icon="@mipmap/ic_launcher"
-        android:label="loridriverflutterapp" >
+        android:label="Lori Driver" >
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyD842OpG-ufZMA_WRU4-9KCJzGnyVjeHjQ" />
+            android:value="AIzaSyBWU_ZsAYVqu7OdhZ5-oRkz3tNySwAnIVY" />
 
         <activity
             android:name="com.example.loridriverflutterapp.MainActivity"

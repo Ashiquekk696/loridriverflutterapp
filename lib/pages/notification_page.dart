@@ -46,6 +46,12 @@ class _NotificationsPageState extends State<NotificationsPage> {
   }
 
   @override
+  void dispose() {
+    _bloc.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     print(ordersModel?.bookings?[0].id);
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -63,14 +69,14 @@ class _NotificationsPageState extends State<NotificationsPage> {
               height: 22,
             ),
             Container(
-              height: 98,
+              height: 60,
               width: double.infinity,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    height: 18,
-                  ),
+                  // SizedBox(
+                  //   height: 18,
+                  // ),
                   Text("NOTIFICATION",
                       style: Theme.of(context).textTheme.titleMedium),
                 ],

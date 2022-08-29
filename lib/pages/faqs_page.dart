@@ -37,7 +37,6 @@ class _FaqsPageState extends State<FaqsPage> {
           setState(() {});
           break;
         case Status.ERROR:
-          // TODO: Handle this case.
           break;
       }
     });

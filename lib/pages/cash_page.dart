@@ -74,6 +74,13 @@ class _CashPageState extends State<CashPage> {
   }
 
   @override
+  void dispose() {
+    submittedCashBloc.dispose();
+    collectedCashBlocBloc.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor:

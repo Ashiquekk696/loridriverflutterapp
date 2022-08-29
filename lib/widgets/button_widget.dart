@@ -27,12 +27,24 @@ class ButtonWidget extends StatefulWidget {
 class _ButtonWidgetState extends State<ButtonWidget> {
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: widget.onTap,
-      child: Container(
+    return Container(
+      child: ElevatedButton(
+        style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(
+              widget.color ?? Theme.of(context).primaryColor,
+            ),
+            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+                    borderRadius:
+                        BorderRadius.circular(widget.borderRadius ?? 30),
+                    side: BorderSide(
+                      color: widget.color ?? Theme.of(context).primaryColor,
+                    )))),
+        onPressed: widget.onTap,
         child: Center(
           child: Text(
             widget.label,
+            textAlign: TextAlign.center,
             style: TextStyle(
                 fontFamily: "Montserrat",
                 color: widget.labelColor ?? Colors.white,
@@ -40,13 +52,13 @@ class _ButtonWidgetState extends State<ButtonWidget> {
                 fontWeight: FontWeight.w500),
           ),
         ),
-        height: widget.height ?? 45,
-        width: widget.width ?? 200,
-        decoration: BoxDecoration(
-            color: widget.color ?? Theme.of(context).primaryColor,
-            borderRadius:
-                BorderRadius.all(Radius.circular(widget.borderRadius ?? 30))),
       ),
+      height: widget.height ?? 45,
+      width: widget.width ?? 200,
+      decoration: BoxDecoration(
+          color: widget.color ?? Theme.of(context).primaryColor,
+          borderRadius:
+              BorderRadius.all(Radius.circular(widget.borderRadius ?? 30))),
     );
   }
 }

@@ -37,6 +37,12 @@ class _AboutUsPageState extends State<AboutUsPage> {
   }
 
   @override
+  void dispose() {
+    staticContentsBloc.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(

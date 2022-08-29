@@ -5,6 +5,7 @@ import 'package:loridriverflutterapp/widgets/button_widget.dart';
 import 'package:loridriverflutterapp/widgets/textfield_widget.dart';
 
 import '../helpers/api_helper.dart';
+import '../widgets/toast_widget.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
   const ForgotPasswordPage({Key? key}) : super(key: key);
@@ -28,6 +29,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
         case Status.LOADING:
           break;
         case Status.COMPLETED:
+          showToast(msg: "Successfull");
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => LoginPage()));
           setState(() {});
@@ -36,6 +38,17 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
           break;
       }
     });
+  }
+
+  showToast({msg}) async {
+    await toastWidget(
+        bgColor: Colors.grey, textColor: Colors.white, msg: msg ?? "");
+  }
+
+  @override
+  void dispose() {
+    _bloc.dispose();
+    super.dispose();
   }
 
   @override

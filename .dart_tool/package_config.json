@@ -2,6 +2,18 @@
   "configVersion": 2,
   "packages": [
     {
+      "name": "archive",
+      "rootUri": "file:///home/oem/Downloads/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/archive-3.3.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "args",
+      "rootUri": "file:///home/oem/Downloads/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/args-2.3.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "async",
       "rootUri": "file:///home/oem/Downloads/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.8.2",
       "packageUri": "lib/",
@@ -50,10 +62,22 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "checked_yaml",
+      "rootUri": "file:///home/oem/Downloads/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/checked_yaml-2.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "chewie",
       "rootUri": "file:///home/oem/Downloads/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/chewie-1.3.4",
       "packageUri": "lib/",
       "languageVersion": "2.13"
+    },
+    {
+      "name": "cli_util",
+      "rootUri": "file:///home/oem/Downloads/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/cli_util-0.3.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "clock",
@@ -63,7 +87,7 @@
     },
     {
       "name": "collection",
-      "rootUri": "file:///home/oem/Downloads/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/collection-1.15.0",
+      "rootUri": "file:///home/oem/Downloads/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/collection-1.16.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -87,7 +111,7 @@
     },
     {
       "name": "fake_async",
-      "rootUri": "file:///home/oem/Downloads/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/fake_async-1.2.0",
+      "rootUri": "file:///home/oem/Downloads/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/fake_async-1.3.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -128,6 +152,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "flutter_launcher_icons",
+      "rootUri": "file:///home/oem/Downloads/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_launcher_icons-0.10.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_lints",
       "rootUri": "file:///home/oem/Downloads/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_lints-1.0.4",
       "packageUri": "lib/",
@@ -149,13 +179,13 @@
       "name": "flutter_test",
       "rootUri": "file:///home/oem/Downloads/sdks/flutter/packages/flutter_test",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.17"
     },
     {
       "name": "flutter_web_plugins",
       "rootUri": "file:///home/oem/Downloads/sdks/flutter/packages/flutter_web_plugins",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.17"
     },
     {
       "name": "flutter_widget_from_html",
@@ -166,6 +196,12 @@
     {
       "name": "flutter_widget_from_html_core",
       "rootUri": "file:///home/oem/Downloads/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_widget_from_html_core-0.8.5+3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "fluttertoast",
+      "rootUri": "file:///home/oem/Downloads/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/fluttertoast-8.0.9",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -248,10 +284,22 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "js",
-      "rootUri": "file:///home/oem/Downloads/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/js-0.6.3",
+      "name": "image",
+      "rootUri": "file:///home/oem/Downloads/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/image-3.1.3",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "js",
+      "rootUri": "file:///home/oem/Downloads/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/js-0.6.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "json_annotation",
+      "rootUri": "file:///home/oem/Downloads/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/json_annotation-4.6.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
     },
     {
       "name": "just_audio",
@@ -285,7 +333,7 @@
     },
     {
       "name": "material_color_utilities",
-      "rootUri": "file:///home/oem/Downloads/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/material_color_utilities-0.1.3",
+      "rootUri": "file:///home/oem/Downloads/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/material_color_utilities-0.1.4",
       "packageUri": "lib/",
       "languageVersion": "2.13"
     },
@@ -309,7 +357,7 @@
     },
     {
       "name": "path",
-      "rootUri": "file:///home/oem/Downloads/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.8.0",
+      "rootUri": "file:///home/oem/Downloads/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.8.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -465,9 +513,9 @@
     },
     {
       "name": "source_span",
-      "rootUri": "file:///home/oem/Downloads/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/source_span-1.8.1",
+      "rootUri": "file:///home/oem/Downloads/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/source_span-1.8.2",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.14"
     },
     {
       "name": "sqflite",
@@ -519,7 +567,7 @@
     },
     {
       "name": "test_api",
-      "rootUri": "file:///home/oem/Downloads/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/test_api-0.4.8",
+      "rootUri": "file:///home/oem/Downloads/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/test_api-0.4.9",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -591,7 +639,7 @@
     },
     {
       "name": "vector_math",
-      "rootUri": "file:///home/oem/Downloads/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.1",
+      "rootUri": "file:///home/oem/Downloads/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.2",
       "packageUri": "lib/",
       "languageVersion": "2.14"
     },
@@ -698,13 +746,19 @@
       "languageVersion": "2.14"
     },
     {
+      "name": "yaml",
+      "rootUri": "file:///home/oem/Downloads/sdks/flutter/.pub-cache/hosted/pub.dartlang.org/yaml-3.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "loridriverflutterapp",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-07-08T03:36:55.831291Z",
+  "generated": "2022-08-29T06:06:10.852118Z",
   "generator": "pub",
-  "generatorVersion": "2.16.2"
+  "generatorVersion": "2.17.6"
 }

@@ -72,13 +72,13 @@
 42-->[androidx.core:core:1.7.0] /home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/AndroidManifest.xml:24:18-86
 43        android:icon="@mipmap/ic_launcher"
 43-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:7:9-43
-44        android:label="loridriverflutterapp" >
-44-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:5:9-45
+44        android:label="Lori Driver" >
+44-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:5:9-36
 45        <meta-data
 45-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:8:9-9:73
 46            android:name="com.google.android.geo.API_KEY"
 46-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:8:20-65
-47            android:value="AIzaSyD842OpG-ufZMA_WRU4-9KCJzGnyVjeHjQ" />
+47            android:value="AIzaSyBWU_ZsAYVqu7OdhZ5-oRkz3tNySwAnIVY" />
 47-->/home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:9:16-71
 48
 49        <activity

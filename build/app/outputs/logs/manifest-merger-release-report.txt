@@ -20,7 +20,7 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/oem/.
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.7.0] /home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/AndroidManifest.xml:24:18-86
 	android:label
-		ADDED from /home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:5:9-45
+		ADDED from /home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:5:9-36
 	android:icon
 		ADDED from /home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:7:9-43
 	android:name
@@ -41,6 +41,7 @@ MERGED from [:wakelock] /home/oem/StudioProjects/loridriverflutterapp/build/wake
 MERGED from [:webview_flutter_android] /home/oem/StudioProjects/loridriverflutterapp/build/webview_flutter_android/intermediates/library_manifest/release/AndroidManifest.xml:2:1-7:12
 MERGED from [:just_audio] /home/oem/StudioProjects/loridriverflutterapp/build/just_audio/intermediates/library_manifest/release/AndroidManifest.xml:2:1-7:12
 MERGED from [:shared_preferences_android] /home/oem/StudioProjects/loridriverflutterapp/build/shared_preferences_android/intermediates/library_manifest/release/AndroidManifest.xml:2:1-7:12
+MERGED from [:fluttertoast] /home/oem/StudioProjects/loridriverflutterapp/build/fluttertoast/intermediates/library_manifest/release/AndroidManifest.xml:2:1-7:12
 MERGED from [:audio_session] /home/oem/StudioProjects/loridriverflutterapp/build/audio_session/intermediates/library_manifest/release/AndroidManifest.xml:2:1-7:12
 MERGED from [:video_player_android] /home/oem/StudioProjects/loridriverflutterapp/build/video_player_android/intermediates/library_manifest/release/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.window:window-java:1.0.0-beta04] /home/oem/.gradle/caches/transforms-2/files-2.1/ad201fac15a88598107ec645f351f5b4/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:17:1-23:12
@@ -125,6 +126,8 @@ MERGED from [:just_audio] /home/oem/StudioProjects/loridriverflutterapp/build/ju
 MERGED from [:just_audio] /home/oem/StudioProjects/loridriverflutterapp/build/just_audio/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
 MERGED from [:shared_preferences_android] /home/oem/StudioProjects/loridriverflutterapp/build/shared_preferences_android/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
 MERGED from [:shared_preferences_android] /home/oem/StudioProjects/loridriverflutterapp/build/shared_preferences_android/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:fluttertoast] /home/oem/StudioProjects/loridriverflutterapp/build/fluttertoast/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:fluttertoast] /home/oem/StudioProjects/loridriverflutterapp/build/fluttertoast/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
 MERGED from [:audio_session] /home/oem/StudioProjects/loridriverflutterapp/build/audio_session/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
 MERGED from [:audio_session] /home/oem/StudioProjects/loridriverflutterapp/build/audio_session/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
 MERGED from [:video_player_android] /home/oem/StudioProjects/loridriverflutterapp/build/video_player_android/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44

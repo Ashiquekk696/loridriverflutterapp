@@ -6,11 +6,13 @@ class TextFieldWidget extends StatelessWidget {
       this.controller,
       required this.image,
       this.label,
+      this.obscureText,
       this.validator})
       : super(key: key);
   var controller;
   var label;
   var image;
+  bool? obscureText = false;
   String? Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
@@ -18,6 +20,7 @@ class TextFieldWidget extends StatelessWidget {
       style: TextStyle(color: Colors.white),
       validator: validator,
       controller: controller,
+      obscureText: obscureText ?? false,
       decoration: InputDecoration(
           errorStyle: TextStyle(
             color: Colors.red[400],

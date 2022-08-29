@@ -28,7 +28,7 @@ class PickedUpBloc {
         images: images,
         packageId: packageId,
         amount: amount);
-
+    print("mmmmm is $response");
     if (response["error"] == false) {
       pickedUpSink.add(ApiResponse.completed(true));
     } else
