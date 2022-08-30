@@ -43,6 +43,7 @@ dependencies:
   flutter_widget_from_html: ^0.8.5
   fluttertoast: ^8.0.9
   flutter_launcher_icons: ^0.10.0
+  image_picker: ^0.8.5+3
 
 flutter_icons:
   android: true

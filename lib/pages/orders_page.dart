@@ -96,227 +96,233 @@ class _OrdersPageState extends State<OrdersPage> {
                                       SizedBox(
                                         height: 15,
                                       ),
-                                      Container(
-                                        decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(5)),
-                                            color: AppColors.greyExtraLight,
-                                            border: Border.all(
-                                                color: Colors.black,
-                                                width: 0.05)),
+                                      GestureDetector(
+                                        onTap: () {
+                                          ordersModel?.bookings?[index]
+                                                              .statusId !=
+                                                          3 &&
+                                                      ordersModel
+                                                              ?.bookings?[index]
+                                                              .delivery !=
+                                                          false ||
+                                                  ordersModel?.bookings?[index]
+                                                              .statusId !=
+                                                          4 &&
+                                                      (ordersModel
+                                                                  ?.bookings?[
+                                                                      index]
+                                                                  .statusId ==
+                                                              2 ||
+                                                          ordersModel
+                                                                  ?.bookings?[
+                                                                      index]
+                                                                  .statusId ==
+                                                              3)
+                                              ? Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          PickUpPage(
+                                                            ordersData: ordersModel
+                                                                    ?.bookings?[
+                                                                index],
+                                                          )))
+                                              : null;
+                                        },
                                         child: Container(
-                                          margin: EdgeInsets.only(
-                                              left: 15, right: 15),
-                                          child: Column(
-                                            children: [
-                                              SizedBox(
-                                                height: 15,
-                                              ),
-                                              Row(
-                                                children: [
-                                                  Text(
-                                                    "Package",
-                                                    style: TextStyle(
-                                                        color: Theme.of(context)
-                                                            .primaryColor,
-                                                        fontSize: 18,
-                                                        fontFamily:
-                                                            "Source Sans Pro",
-                                                        fontWeight:
-                                                            FontWeight.w600),
-                                                  ),
-                                                  SizedBox(
-                                                    width: 10,
-                                                  ),
-                                                  Expanded(
-                                                    child: Text(
-                                                      "#${ordersModel?.bookings?[index].id.toString() ?? ""}",
+                                          decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(5)),
+                                              color: AppColors.greyExtraLight,
+                                              border: Border.all(
+                                                  color: Colors.black,
+                                                  width: 0.05)),
+                                          child: Container(
+                                            margin: EdgeInsets.only(
+                                                left: 15, right: 15),
+                                            child: Column(
+                                              children: [
+                                                SizedBox(
+                                                  height: 15,
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    Text(
+                                                      "Package",
                                                       style: TextStyle(
-                                                          color: Colors.black,
+                                                          color:
+                                                              Theme.of(context)
+                                                                  .primaryColor,
                                                           fontSize: 18,
                                                           fontFamily:
                                                               "Source Sans Pro",
                                                           fontWeight:
                                                               FontWeight.w600),
                                                     ),
-                                                  ),
-                                                  Visibility(
-                                                    visible: ordersModel
-                                                            ?.bookings?[index]
-                                                            .pickup !=
-                                                        false,
-                                                    child: ordersModel
-                                                                        ?.bookings?[
-                                                                            index]
-                                                                        .statusId ==
-                                                                    3 &&
-                                                                ordersModel
-                                                                        ?.bookings?[
-                                                                            index]
-                                                                        .delivery ==
-                                                                    false ||
-                                                            ordersModel
-                                                                    ?.bookings?[
-                                                                        index]
-                                                                    .statusId ==
-                                                                4
-                                                        ? Container(
-                                                            height: 30,
-                                                            width: 30,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                                    shape: BoxShape
-                                                                        .circle,
-                                                                    color: Colors
-                                                                        .green),
-                                                            child: Center(
-                                                              child: Icon(
-                                                                Icons.done,
-                                                                color: Colors
-                                                                    .white,
-                                                                size: 25,
+                                                    SizedBox(
+                                                      width: 10,
+                                                    ),
+                                                    Expanded(
+                                                      child: Text(
+                                                        "#${ordersModel?.bookings?[index].id.toString() ?? ""}",
+                                                        style: TextStyle(
+                                                            color: Colors.black,
+                                                            fontSize: 18,
+                                                            fontFamily:
+                                                                "Source Sans Pro",
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w600),
+                                                      ),
+                                                    ),
+                                                    Visibility(
+                                                      visible: ordersModel
+                                                              ?.bookings?[index]
+                                                              .pickup !=
+                                                          false,
+                                                      child: ordersModel
+                                                                          ?.bookings?[
+                                                                              index]
+                                                                          .statusId ==
+                                                                      3 &&
+                                                                  ordersModel
+                                                                          ?.bookings?[
+                                                                              index]
+                                                                          .delivery ==
+                                                                      false ||
+                                                              ordersModel
+                                                                      ?.bookings?[
+                                                                          index]
+                                                                      .statusId ==
+                                                                  4
+                                                          ? Container(
+                                                              height: 30,
+                                                              width: 30,
+                                                              decoration: BoxDecoration(
+                                                                  shape: BoxShape
+                                                                      .circle,
+                                                                  color: Colors
+                                                                      .green),
+                                                              child: Center(
+                                                                child: Icon(
+                                                                  Icons.done,
+                                                                  color: Colors
+                                                                      .white,
+                                                                  size: 25,
+                                                                ),
                                                               ),
-                                                            ),
-                                                          )
-                                                        : ButtonWidget(
-                                                            fontSize: 13,
-                                                            onTap: () {
-                                                              print(
-                                                                  "amount is ${ordersModel?.bookings?[index].amount}");
-                                                              ordersModel?.bookings?[index].statusId ==
-                                                                          2 ||
-                                                                      ordersModel
-                                                                              ?.bookings?[index]
+                                                            )
+                                                          : ButtonWidget(
+                                                              fontSize: 13,
+                                                              onTap: () {
+                                                                print(
+                                                                    "amount is ${ordersModel?.bookings?[index].amount}");
+                                                                ordersModel?.bookings?[index].statusId ==
+                                                                            2 ||
+                                                                        ordersModel?.bookings?[index].statusId ==
+                                                                            3
+                                                                    ? Navigator.push(
+                                                                        context,
+                                                                        MaterialPageRoute(
+                                                                            builder: (context) => PickUpPage(
+                                                                                  ordersData: ordersModel?.bookings?[index],
+                                                                                )))
+                                                                    : null;
+                                                              },
+                                                              label: ordersModel
+                                                                          ?.bookings?[
+                                                                              index]
+                                                                          .statusId ==
+                                                                      2
+                                                                  ? "Pick Up"
+                                                                  : ordersModel
+                                                                              ?.bookings?[
+                                                                                  index]
                                                                               .statusId ==
                                                                           3
-                                                                  ? Navigator.push(
-                                                                      context,
-                                                                      MaterialPageRoute(
-                                                                          builder: (context) => PickUpPage(
-                                                                                ordersData: ordersModel?.bookings?[index],
-                                                                              )))
-                                                                  : null;
-                                                            },
-                                                            label: ordersModel
-                                                                        ?.bookings?[
-                                                                            index]
-                                                                        .statusId ==
-                                                                    2
-                                                                ? "Pick Up"
-                                                                : ordersModel
-                                                                            ?.bookings?[
-                                                                                index]
-                                                                            .statusId ==
-                                                                        3
-                                                                    ? "Deliver"
-                                                                    : ordersModel
-                                                                            ?.bookings?[index]
-                                                                            .status ??
-                                                                        "",
-                                                            height: 40,
-                                                            width: 100,
-                                                            borderRadius: 5,
-                                                          ),
-                                                  )
-                                                ],
-                                              ),
-                                              SizedBox(
-                                                height: 18,
-                                              ),
-                                              Row(
-                                                children: [
-                                                  Text(
-                                                    "Pickup :",
-                                                    style: TextStyle(
-                                                        color:
-                                                            Color(0xFF757575),
-                                                        fontSize: 14,
-                                                        //    fontFamily: "Source Sans Pro",
-                                                        fontWeight:
-                                                            FontWeight.w400),
-                                                  ),
-                                                  Text(
-                                                    "  ${ordersModel?.bookings?[index].pickupCity}" ??
-                                                        "",
-                                                    style: TextStyle(
-                                                        color: Colors.black,
-                                                        fontSize: 14,
-                                                        //    fontFamily: "Source Sans Pro",
-                                                        fontWeight:
-                                                            FontWeight.w400),
-                                                  ),
-                                                ],
-                                              ),
-                                              SizedBox(
-                                                height: 5,
-                                              ),
-                                              Row(
-                                                children: [
-                                                  Text(
-                                                    "Delivery :",
-                                                    style: TextStyle(
-                                                        color:
-                                                            Color(0xFF757575),
-                                                        fontSize: 14,
-                                                        //    fontFamily: "Source Sans Pro",
-                                                        fontWeight:
-                                                            FontWeight.w400),
-                                                  ),
-                                                  Text(
-                                                    "  ${ordersModel?.bookings?[index].deliveryCity}" ??
-                                                        "",
-                                                    style: TextStyle(
-                                                        color: Colors.black,
-                                                        fontSize: 14,
-                                                        //    fontFamily: "Source Sans Pro",
-                                                        fontWeight:
-                                                            FontWeight.w400),
-                                                  ),
-                                                ],
-                                              ),
-                                              SizedBox(
-                                                height: 10,
-                                              ),
-                                              Row(
-                                                children: [
-                                                  Icon(
-                                                    Icons.more_time,
-                                                    color: Colors.grey,
-                                                  ),
-                                                  SizedBox(
-                                                    width: 27,
-                                                  ),
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                        right: 140),
-                                                    child: Text(
-                                                      "${ordersModel?.bookings?[index].userPickupTime}",
+                                                                      ? "Deliver"
+                                                                      : ordersModel
+                                                                              ?.bookings?[index]
+                                                                              .status ??
+                                                                          "",
+                                                              height: 40,
+                                                              width: 100,
+                                                              borderRadius: 5,
+                                                            ),
+                                                    )
+                                                  ],
+                                                ),
+                                                SizedBox(
+                                                  height: 18,
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    Text(
+                                                      "Pickup :",
                                                       style: TextStyle(
-                                                          color: Colors.grey,
+                                                          color:
+                                                              Color(0xFF757575),
                                                           fontSize: 14,
                                                           //    fontFamily: "Source Sans Pro",
                                                           fontWeight:
                                                               FontWeight.w400),
                                                     ),
-                                                  ),
-                                                ],
-                                              ),
-                                              SizedBox(
-                                                height: 6,
-                                              ),
-                                              Container(
-                                                child: Row(
+                                                    Text(
+                                                      "  ${ordersModel?.bookings?[index].pickupCity}" ??
+                                                          "",
+                                                      style: TextStyle(
+                                                          color: Colors.black,
+                                                          fontSize: 14,
+                                                          //    fontFamily: "Source Sans Pro",
+                                                          fontWeight:
+                                                              FontWeight.w400),
+                                                    ),
+                                                  ],
+                                                ),
+                                                SizedBox(
+                                                  height: 5,
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    Text(
+                                                      "Delivery :",
+                                                      style: TextStyle(
+                                                          color:
+                                                              Color(0xFF757575),
+                                                          fontSize: 14,
+                                                          //    fontFamily: "Source Sans Pro",
+                                                          fontWeight:
+                                                              FontWeight.w400),
+                                                    ),
+                                                    Text(
+                                                      "  ${ordersModel?.bookings?[index].deliveryCity}" ??
+                                                          "",
+                                                      style: TextStyle(
+                                                          color: Colors.black,
+                                                          fontSize: 14,
+                                                          //    fontFamily: "Source Sans Pro",
+                                                          fontWeight:
+                                                              FontWeight.w400),
+                                                    ),
+                                                  ],
+                                                ),
+                                                SizedBox(
+                                                  height: 10,
+                                                ),
+                                                Row(
                                                   children: [
                                                     Icon(
-                                                      Icons.calendar_month,
+                                                      Icons.more_time,
                                                       color: Colors.grey,
                                                     ),
                                                     SizedBox(
-                                                      width: 28,
+                                                      width: 27,
                                                     ),
-                                                    Expanded(
+                                                    Padding(
+                                                      padding: EdgeInsets.only(
+                                                          right: 140),
                                                       child: Text(
-                                                        "${ordersModel?.bookings?[index].pickupDate}",
+                                                        "${ordersModel?.bookings?[index].userPickupTime}",
                                                         style: TextStyle(
                                                             color: Colors.grey,
                                                             fontSize: 14,
@@ -326,20 +332,49 @@ class _OrdersPageState extends State<OrdersPage> {
                                                                     .w400),
                                                       ),
                                                     ),
-                                                    Text(
-                                                        "AED ${ordersModel?.bookings?[index].amount}",
-                                                        style: TextStyles()
-                                                            .styleBolded(
-                                                                color: Theme.of(
-                                                                        context)
-                                                                    .primaryColor)),
                                                   ],
                                                 ),
-                                              ),
-                                              SizedBox(
-                                                height: 15,
-                                              )
-                                            ],
+                                                SizedBox(
+                                                  height: 6,
+                                                ),
+                                                Container(
+                                                  child: Row(
+                                                    children: [
+                                                      Icon(
+                                                        Icons.calendar_month,
+                                                        color: Colors.grey,
+                                                      ),
+                                                      SizedBox(
+                                                        width: 28,
+                                                      ),
+                                                      Expanded(
+                                                        child: Text(
+                                                          "${ordersModel?.bookings?[index].pickupDate}",
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.grey,
+                                                              fontSize: 14,
+                                                              //    fontFamily: "Source Sans Pro",
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w400),
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                          "AED ${ordersModel?.bookings?[index].amount}",
+                                                          style: TextStyles()
+                                                              .styleBolded(
+                                                                  color: Theme.of(
+                                                                          context)
+                                                                      .primaryColor)),
+                                                    ],
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: 15,
+                                                )
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),

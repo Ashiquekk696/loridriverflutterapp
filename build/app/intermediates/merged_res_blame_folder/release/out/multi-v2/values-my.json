@@ -4,24 +4,7 @@
             "outputFile": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/incremental/mergeReleaseResources/merged.dir/values-my/values-my.xml",
             "map": [
                 {
-                    "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/f81d7720190f110f0e5c11d71f550860/jetified-exoplayer-core-2.17.1/res/values-my/values-my.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10",
-                        "startColumns": "4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,130,202,275,344,426,501,602,697",
-                        "endColumns": "74,71,72,68,81,74,100,94,77",
-                        "endOffsets": "125,197,270,339,421,496,597,692,770"
-                    },
-                    "to": {
-                        "startLines": "21,22,23,24,25,26,27,28,29",
-                        "startColumns": "4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "2513,2588,2660,2733,2802,2884,2959,3060,3155",
-                        "endColumns": "74,71,72,68,81,74,100,94,77",
-                        "endOffsets": "2583,2655,2728,2797,2879,2954,3055,3150,3228"
-                    }
-                },
-                {
-                    "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/values-my/values-my.xml",
+                    "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/8e86e615f21ac3758e97e94e18045107/core-1.8.0/res/values-my/values-my.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -86,6 +69,23 @@
                         "startOffsets": "2409,3233,3333,3431,3558",
                         "endColumns": "103,99,97,126,132",
                         "endOffsets": "2508,3328,3426,3553,3686"
+                    }
+                },
+                {
+                    "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/dcddb311c85ad4ba0fb094e649f15a67/jetified-exoplayer-core-2.18.1/res/values-my/values-my.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,130,202,275,344,426,501,602,697",
+                        "endColumns": "74,71,72,68,81,74,100,94,77",
+                        "endOffsets": "125,197,270,339,421,496,597,692,770"
+                    },
+                    "to": {
+                        "startLines": "21,22,23,24,25,26,27,28,29",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "2513,2588,2660,2733,2802,2884,2959,3060,3155",
+                        "endColumns": "74,71,72,68,81,74,100,94,77",
+                        "endOffsets": "2583,2655,2728,2797,2879,2954,3055,3150,3228"
                     }
                 }
             ]

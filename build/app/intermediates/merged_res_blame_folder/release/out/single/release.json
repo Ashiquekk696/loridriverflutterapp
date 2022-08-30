@@ -9,7 +9,7 @@
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-v21_notification_action_background.xml.flat",
-        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/drawable-v21/notification_action_background.xml"
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/8e86e615f21ac3758e97e94e18045107/core-1.8.0/res/drawable-v21/notification_action_background.xml"
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-mdpi_ic_launcher_background.png.flat",
@@ -17,7 +17,7 @@
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-xhdpi-v4_notification_bg_low_normal.9.png.flat",
-        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/drawable-xhdpi-v4/notification_bg_low_normal.9.png"
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/8e86e615f21ac3758e97e94e18045107/core-1.8.0/res/drawable-xhdpi-v4/notification_bg_low_normal.9.png"
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-ldpi-v4_media_session_service_notification_ic_music_note.png.flat",
@@ -45,7 +45,7 @@
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-xhdpi-v4_notification_bg_low_pressed.9.png.flat",
-        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/drawable-xhdpi-v4/notification_bg_low_pressed.9.png"
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/8e86e615f21ac3758e97e94e18045107/core-1.8.0/res/drawable-xhdpi-v4/notification_bg_low_pressed.9.png"
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-anydpi-v21_media_session_service_notification_ic_skip_to_next.xml.flat",
@@ -85,7 +85,7 @@
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-hdpi-v4_notification_bg_normal_pressed.9.png.flat",
-        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/drawable-hdpi-v4/notification_bg_normal_pressed.9.png"
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/8e86e615f21ac3758e97e94e18045107/core-1.8.0/res/drawable-hdpi-v4/notification_bg_normal_pressed.9.png"
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-xxhdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
@@ -141,7 +141,7 @@
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/layout_custom_dialog.xml.flat",
-        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/layout/custom_dialog.xml"
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/8e86e615f21ac3758e97e94e18045107/core-1.8.0/res/layout/custom_dialog.xml"
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/layout_notification_template_big_media_narrow_custom.xml.flat",
@@ -165,7 +165,7 @@
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-xhdpi-v4_notification_bg_normal_pressed.9.png.flat",
-        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png"
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/8e86e615f21ac3758e97e94e18045107/core-1.8.0/res/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png"
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-hdpi_ic_launcher_foreground.png.flat",
@@ -174,6 +174,10 @@
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-hdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
         "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/642cc9e2632e586d1058ed231591ead4/jetified-play-services-base-18.0.1/res/drawable-hdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png"
+    },
+    {
+        "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/xml_flutter_image_picker_file_paths.xml.flat",
+        "source": "/home/oem/StudioProjects/loridriverflutterapp/build/image_picker_android/intermediates/packaged_res/release/xml/flutter_image_picker_file_paths.xml"
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable_common_google_signin_btn_text_dark_focused.xml.flat",
@@ -197,7 +201,7 @@
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-mdpi-v4_notify_panel_notification_icon_bg.png.flat",
-        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/drawable-mdpi-v4/notify_panel_notification_icon_bg.png"
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/8e86e615f21ac3758e97e94e18045107/core-1.8.0/res/drawable-mdpi-v4/notify_panel_notification_icon_bg.png"
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/layout_notification_media_cancel_action.xml.flat",
@@ -213,7 +217,7 @@
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable_notification_bg_low.xml.flat",
-        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/drawable/notification_bg_low.xml"
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/8e86e615f21ac3758e97e94e18045107/core-1.8.0/res/drawable/notification_bg_low.xml"
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/layout_notification_template_media.xml.flat",
@@ -221,7 +225,7 @@
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/layout_notification_action_tombstone.xml.flat",
-        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/layout/notification_action_tombstone.xml"
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/8e86e615f21ac3758e97e94e18045107/core-1.8.0/res/layout/notification_action_tombstone.xml"
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-ldpi-v4_media_session_service_notification_ic_skip_to_next.png.flat",
@@ -233,7 +237,7 @@
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/layout-v21_notification_action.xml.flat",
-        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/layout-v21/notification_action.xml"
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/8e86e615f21ac3758e97e94e18045107/core-1.8.0/res/layout-v21/notification_action.xml"
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable_common_google_signin_btn_icon_light_focused.xml.flat",
@@ -261,7 +265,7 @@
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-mdpi-v4_notification_bg_low_normal.9.png.flat",
-        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/drawable-mdpi-v4/notification_bg_low_normal.9.png"
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/8e86e615f21ac3758e97e94e18045107/core-1.8.0/res/drawable-mdpi-v4/notification_bg_low_normal.9.png"
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-hdpi-v4_googleg_disabled_color_18.png.flat",
@@ -269,7 +273,7 @@
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-hdpi-v4_notification_bg_low_pressed.9.png.flat",
-        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/drawable-hdpi-v4/notification_bg_low_pressed.9.png"
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/8e86e615f21ac3758e97e94e18045107/core-1.8.0/res/drawable-hdpi-v4/notification_bg_low_pressed.9.png"
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-mdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
@@ -305,11 +309,11 @@
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable_notification_bg.xml.flat",
-        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/drawable/notification_bg.xml"
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/8e86e615f21ac3758e97e94e18045107/core-1.8.0/res/drawable/notification_bg.xml"
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-mdpi-v4_notification_bg_normal.9.png.flat",
-        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/drawable-mdpi-v4/notification_bg_normal.9.png"
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/8e86e615f21ac3758e97e94e18045107/core-1.8.0/res/drawable-mdpi-v4/notification_bg_normal.9.png"
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/color_common_google_signin_btn_tint.xml.flat",
@@ -321,7 +325,7 @@
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-hdpi-v4_notify_panel_notification_icon_bg.png.flat",
-        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/drawable-hdpi-v4/notify_panel_notification_icon_bg.png"
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/8e86e615f21ac3758e97e94e18045107/core-1.8.0/res/drawable-hdpi-v4/notify_panel_notification_icon_bg.png"
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-xhdpi_ic_launcher_foreground.png.flat",
@@ -341,11 +345,11 @@
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable_notification_icon_background.xml.flat",
-        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/drawable/notification_icon_background.xml"
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/8e86e615f21ac3758e97e94e18045107/core-1.8.0/res/drawable/notification_icon_background.xml"
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/layout_notification_action.xml.flat",
-        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/layout/notification_action.xml"
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/8e86e615f21ac3758e97e94e18045107/core-1.8.0/res/layout/notification_action.xml"
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-mdpi-v4_media_session_service_notification_ic_pause.png.flat",
@@ -357,11 +361,11 @@
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/layout-v16_notification_template_custom_big.xml.flat",
-        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/layout-v16/notification_template_custom_big.xml"
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/8e86e615f21ac3758e97e94e18045107/core-1.8.0/res/layout-v16/notification_template_custom_big.xml"
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/layout-v21_notification_action_tombstone.xml.flat",
-        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/layout-v21/notification_action_tombstone.xml"
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/8e86e615f21ac3758e97e94e18045107/core-1.8.0/res/layout-v21/notification_action_tombstone.xml"
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/layout_notification_template_lines_media.xml.flat",
@@ -389,7 +393,7 @@
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-mdpi-v4_notification_bg_normal_pressed.9.png.flat",
-        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/drawable-mdpi-v4/notification_bg_normal_pressed.9.png"
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/8e86e615f21ac3758e97e94e18045107/core-1.8.0/res/drawable-mdpi-v4/notification_bg_normal_pressed.9.png"
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-ldpi-v4_media_session_service_notification_ic_pause.png.flat",
@@ -397,11 +401,11 @@
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-xhdpi-v4_notification_bg_normal.9.png.flat",
-        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/drawable-xhdpi-v4/notification_bg_normal.9.png"
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/8e86e615f21ac3758e97e94e18045107/core-1.8.0/res/drawable-xhdpi-v4/notification_bg_normal.9.png"
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-mdpi-v4_notification_bg_low_pressed.9.png.flat",
-        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/drawable-mdpi-v4/notification_bg_low_pressed.9.png"
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/8e86e615f21ac3758e97e94e18045107/core-1.8.0/res/drawable-mdpi-v4/notification_bg_low_pressed.9.png"
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable_common_google_signin_btn_icon_disabled.xml.flat",
@@ -421,7 +425,7 @@
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/layout_notification_template_part_chronometer.xml.flat",
-        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/layout/notification_template_part_chronometer.xml"
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/8e86e615f21ac3758e97e94e18045107/core-1.8.0/res/layout/notification_template_part_chronometer.xml"
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-xhdpi-v4_common_full_open_on_phone.png.flat",
@@ -437,11 +441,11 @@
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/layout-v21_notification_template_custom_big.xml.flat",
-        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/layout-v21/notification_template_custom_big.xml"
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/8e86e615f21ac3758e97e94e18045107/core-1.8.0/res/layout-v21/notification_template_custom_big.xml"
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-hdpi-v4_notification_bg_normal.9.png.flat",
-        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/drawable-hdpi-v4/notification_bg_normal.9.png"
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/8e86e615f21ac3758e97e94e18045107/core-1.8.0/res/drawable-hdpi-v4/notification_bg_normal.9.png"
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-xxxhdpi_ic_launcher_foreground.png.flat",
@@ -453,7 +457,7 @@
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
-        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png"
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/8e86e615f21ac3758e97e94e18045107/core-1.8.0/res/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png"
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-anydpi-v21_media_session_service_notification_ic_skip_to_previous.xml.flat",
@@ -477,7 +481,7 @@
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-hdpi-v4_notification_bg_low_normal.9.png.flat",
-        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/drawable-hdpi-v4/notification_bg_low_normal.9.png"
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/8e86e615f21ac3758e97e94e18045107/core-1.8.0/res/drawable-hdpi-v4/notification_bg_low_normal.9.png"
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-xxhdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
@@ -493,15 +497,11 @@
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/layout_notification_template_part_time.xml.flat",
-        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/layout/notification_template_part_time.xml"
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/8e86e615f21ac3758e97e94e18045107/core-1.8.0/res/layout/notification_template_part_time.xml"
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-xxxhdpi-v4_media_session_service_notification_ic_skip_to_previous.png.flat",
         "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/ceed3f2a94aa97e10ce61a44d59bd533/jetified-media2-session-1.2.0/res/drawable-xxxhdpi-v4/media_session_service_notification_ic_skip_to_previous.png"
-    },
-    {
-        "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/menu_example_menu2.xml.flat",
-        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/menu/example_menu2.xml"
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable_corner.xml.flat",
@@ -517,7 +517,7 @@
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/layout_notification_template_icon_group.xml.flat",
-        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/layout/notification_template_icon_group.xml"
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/8e86e615f21ac3758e97e94e18045107/core-1.8.0/res/layout/notification_template_icon_group.xml"
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-anydpi-v21_media_session_service_notification_ic_pause.xml.flat",
@@ -536,10 +536,6 @@
         "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/642cc9e2632e586d1058ed231591ead4/jetified-play-services-base-18.0.1/res/drawable-xhdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png"
     },
     {
-        "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/menu_example_menu.xml.flat",
-        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/menu/example_menu.xml"
-    },
-    {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-xxhdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
         "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/642cc9e2632e586d1058ed231591ead4/jetified-play-services-base-18.0.1/res/drawable-xxhdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png"
     },
@@ -553,7 +549,7 @@
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/layout-v21_notification_template_icon_group.xml.flat",
-        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/layout-v21/notification_template_icon_group.xml"
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/8e86e615f21ac3758e97e94e18045107/core-1.8.0/res/layout-v21/notification_template_icon_group.xml"
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable-mdpi-v4_media_session_service_notification_ic_skip_to_previous.png.flat",
@@ -561,6 +557,6 @@
     },
     {
         "merged": "/home/oem/StudioProjects/loridriverflutterapp/build/app/intermediates/res/merged/release/drawable_notification_tile_bg.xml.flat",
-        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/b9a960218f5163997c0fdfa3d3078c0e/core-1.7.0/res/drawable/notification_tile_bg.xml"
+        "source": "/home/oem/.gradle/caches/transforms-2/files-2.1/8e86e615f21ac3758e97e94e18045107/core-1.8.0/res/drawable/notification_tile_bg.xml"
     }
 ]

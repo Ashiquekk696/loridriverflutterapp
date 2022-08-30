@@ -17,19 +17,20 @@ class DeliveredServices {
       "driver-token": driverToken,
     });
     request.fields['amount'] = amount;
+    print("images are ${images}");
     for (int i = 0; i < images!.length; i++) {
       request.files.add(http.MultipartFile(
           'attachment[$i]',
           File(images[i].path).readAsBytes().asStream(),
           File(images[i].path).lengthSync(),
           filename: images[i].path.split('/').last));
-
-      var streamData = await request.send();
-      var response = await http.Response.fromStream(streamData);
-
-      final responseData = json.decode(response.body);
-      print("hhkkk${responseData}hhkk");
-      return responseData;
     }
+
+    var streamData = await request.send();
+    var response = await http.Response.fromStream(streamData);
+
+    final responseData = json.decode(response.body);
+    print("hhkkk${responseData}hhkk");
+    return responseData;
   }
 }

@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:image_picker/image_picker.dart';
 import 'package:loridriverflutterapp/bloc/delivered_bloc.dart';
 import 'package:loridriverflutterapp/bloc/orders_bloc.dart';
 import 'package:loridriverflutterapp/bloc/picked_bloc.dart';
@@ -33,16 +34,75 @@ class _PickUpPageState extends State<PickUpPage> {
   OrdersModel? ordersModel;
   List<File> pickUpImages = [];
   List<File> deliveryImages = [];
-  getImages({List<File>? images}) async {
-    FilePickerResult? result = await FilePicker.platform
-        .pickFiles(allowMultiple: true, type: FileType.image);
+  // getImages({List<File>? images}) async {
+  //   FilePickerResult? result = await FilePicker.platform
+  //       .pickFiles(allowMultiple: true, type: FileType.image);
 
-    if (result != null) {
-      for (var elemnt in result.paths) {
-        images?.add(File(elemnt!));
+  //   if (result != null) {
+  //     for (var elemnt in result.paths) {
+  //       images?.add(File(elemnt!));
+  //       setState(() {});
+  //     }
+  //   }
+  // }
+
+  final ImagePicker picker = ImagePicker();
+
+  // List<File> image = [];
+
+  _imgFromGallery({List<File>? images}) async {
+    List<XFile>? pickedImages = await picker.pickMultiImage();
+
+    if (pickedImages != null) {
+      for (var element in pickedImages) {
+        File file = File(element.path);
+        images?.add(file);
+
         setState(() {});
       }
     }
+  }
+
+  getCameraImage({List<File>? images}) async {
+    XFile? cameraImages = await picker.pickImage(
+      source: ImageSource.camera,
+    );
+    if (cameraImages != null) {
+      File file = File(cameraImages.path);
+      images?.add(file);
+
+      setState(() {});
+    }
+  }
+
+  void _showPicker(context, List<File>? images) {
+    showModalBottomSheet(
+        context: context,
+        builder: (BuildContext bc) {
+          return SafeArea(
+            child: Container(
+              child: new Wrap(
+                children: <Widget>[
+                  new ListTile(
+                      leading: new Icon(Icons.photo_library),
+                      title: new Text('Photo Library'),
+                      onTap: () {
+                        _imgFromGallery(images: images);
+                        Navigator.of(context).pop();
+                      }),
+                  new ListTile(
+                    leading: new Icon(Icons.photo_camera),
+                    title: new Text('Camera'),
+                    onTap: () {
+                      getCameraImage(images: images);
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ],
+              ),
+            ),
+          );
+        });
   }
 
   Future<void> _launchInBrowser(Uri url) async {
@@ -549,7 +609,9 @@ class _PickUpPageState extends State<PickUpPage> {
                                     children: [
                                       GestureDetector(
                                         onTap: () {
-                                          getImages(images: pickUpImages);
+                                          //getImages(images: pickUpImages);
+                                          _showPicker(context, pickUpImages);
+                                          setState(() {});
                                         },
                                         child: Container(
                                           height: 83,
@@ -581,6 +643,8 @@ class _PickUpPageState extends State<PickUpPage> {
                                                           height: 83,
                                                           width: 100,
                                                           child: Image.file(
+                                                            // pickUpImages[i],
+
                                                             pickUpImages[i],
                                                             fit: BoxFit.cover,
                                                           ),
@@ -1035,7 +1099,8 @@ class _PickUpPageState extends State<PickUpPage> {
                                           //     text: "You haven't picked yet");
 
                                         } else
-                                          getImages(images: deliveryImages);
+                                          // getImages(images: deliveryImages);
+                                          _showPicker(context, deliveryImages);
                                       },
                                       child: Container(
                                         height: 83,
