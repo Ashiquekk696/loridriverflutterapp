@@ -6,6 +6,8 @@ class NotificationService {
     var response = await ApiHelper().get(ApiEndPoints.notifications, headers: {
       "driver-token": driverToken,
     });
+
+    print("my token is $driverToken");
     return response;
   }
 }

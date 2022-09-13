@@ -43,6 +43,7 @@ class _LoginPageState extends State<LoginPage> {
           setState(() {});
           break;
         case Status.ERROR:
+          showToast(msg: event.message ?? "");
           break;
       }
     });
@@ -75,24 +76,24 @@ class _LoginPageState extends State<LoginPage> {
                 height: 211,
               ),
               Image.asset(
-                "assets/images/headerlogo.png",
-                height: 38,
+                "assets/images/launcher icon.jpg",
+                height: 150,
               ),
-              SizedBox(
-                height: 20,
-              ),
-              Text("Driver App",
-                  style: TextStyle(
-                      fontSize: 21,
-                      fontFamily: "Montserrat",
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white,
-                      letterSpacing: 0)),
+              // SizedBox(
+              //   height: 20,
+              // ),
+              // Text("Driver",
+              //     style: TextStyle(
+              //         fontSize: 18,
+              //         fontFamily: "Montserrat",
+              //         fontWeight: FontWeight.w500,
+              //         color: Colors.white,
+              //         letterSpacing: 0)),
               SizedBox(
                 height: 25,
               ),
               Container(
-                margin: EdgeInsets.only(left: 64, right: 64),
+                margin: EdgeInsets.only(left: 33, right: 33),
                 child: TextFieldWidget(
                   controller: emailController,
                   validator: (value) {
@@ -110,14 +111,14 @@ class _LoginPageState extends State<LoginPage> {
                     }
                   },
                   image: "assets/images/user.png",
-                  label: "Username or email",
+                  label: "Email",
                 ),
               ),
               SizedBox(
                 height: 25,
               ),
               Container(
-                margin: EdgeInsets.only(left: 64, right: 64),
+                margin: EdgeInsets.only(left: 33, right: 33),
                 child: TextFieldWidget(
                   obscureText: true,
                   validator: (value) {
@@ -133,29 +134,29 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(
                 height: 25,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: 50),
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ForgotPasswordPage()));
-                      },
-                      child: Text(
-                        "Forgot Password?",
-                        style: TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.white),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.end,
+              //   children: [
+              //     Padding(
+              //       padding: const EdgeInsets.only(right: 50),
+              //       child: GestureDetector(
+              //         onTap: () {
+              //           Navigator.push(
+              //               context,
+              //               MaterialPageRoute(
+              //                   builder: (context) => ForgotPasswordPage()));
+              //         },
+              //         child: Text(
+              //           "Forgot Password?",
+              //           style: TextStyle(
+              //               fontSize: 13,
+              //               fontWeight: FontWeight.w400,
+              //               color: Colors.white),
+              //         ),
+              //       ),
+              //     ),
+              //   ],
+              // ),
               SizedBox(
                 height: 25,
               ),

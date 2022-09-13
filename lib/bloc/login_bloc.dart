@@ -22,6 +22,7 @@ class LoginBloc {
     if (response["error"] == false) {
       loginSink.add(ApiResponse.completed(true));
       Preferences().preferrnces(
+          isLoggedIn: true,
           token: response["api_token"],
           driverName: response['driver_details']['name']);
     } else

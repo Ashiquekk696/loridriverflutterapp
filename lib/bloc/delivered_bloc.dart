@@ -48,7 +48,7 @@ class DeliveredBloc {
             images: images,
             packageId: packageId,
             amount: amount);
-
+    print(response);
     if (response["error"] == false) {
       deliveredSink.add(ApiResponse.completed(true));
     } else

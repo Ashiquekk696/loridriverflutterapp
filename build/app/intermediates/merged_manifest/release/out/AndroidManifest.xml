@@ -41,7 +41,7 @@
         android:name="android.app.Application"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:icon="@mipmap/ic_launcher"
-        android:label="Lori Driver" >
+        android:label="Lori Drivers" >
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBWU_ZsAYVqu7OdhZ5-oRkz3tNySwAnIVY" />

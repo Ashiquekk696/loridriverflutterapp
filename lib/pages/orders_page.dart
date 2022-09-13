@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:loridriverflutterapp/bloc/orders_bloc.dart';
 import 'package:loridriverflutterapp/helpers/text_styles.dart';
 import 'package:loridriverflutterapp/models/orders_model.dart';
+import 'package:loridriverflutterapp/pages/login_page.dart';
 import 'package:loridriverflutterapp/pages/pickup_page.dart';
 import 'package:loridriverflutterapp/widgets/appbar_widget.dart';
 import 'package:loridriverflutterapp/widgets/button_widget.dart';
@@ -42,7 +43,10 @@ class _OrdersPageState extends State<OrdersPage> {
           setState(() {});
           break;
         case Status.ERROR:
-          // TODO: Handle this case.
+          isLoading = false;
+          Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => LoginPage()));
+          setState(() {});
           break;
       }
     });
@@ -81,7 +85,7 @@ class _OrdersPageState extends State<OrdersPage> {
                             SizedBox(
                               height: 255,
                             ),
-                            Text("No orders found")
+                            Text("No orders for today")
                           ],
                         )
                       : Expanded(
@@ -98,27 +102,38 @@ class _OrdersPageState extends State<OrdersPage> {
                                       ),
                                       GestureDetector(
                                         onTap: () {
+                                          // ordersModel?.bookings?[index]
+                                          //                     .statusId !=
+                                          //                 3 &&
+                                          //             ordersModel
+                                          //                     ?.bookings?[index]
+                                          //                     .delivery !=
+                                          //                 false ||
+                                          //         ordersModel?.bookings?[index]
+                                          //                     .statusId !=
+                                          //                 4 &&
+                                          //             (ordersModel
+                                          //                         ?.bookings?[
+                                          //                             index]
+                                          //                         .statusId ==
+                                          //                     2 ||
+                                          //                 ordersModel
+                                          //                         ?.bookings?[
+                                          //                             index]
+                                          //                         .statusId ==
+                                          //                     3)
                                           ordersModel?.bookings?[index]
-                                                              .statusId !=
+                                                          .statusId ==
+                                                      4 ||
+                                                  (ordersModel?.bookings?[index]
+                                                              .statusId ==
                                                           3 &&
                                                       ordersModel
                                                               ?.bookings?[index]
-                                                              .delivery !=
-                                                          false ||
-                                                  ordersModel?.bookings?[index]
-                                                              .statusId !=
-                                                          4 &&
-                                                      (ordersModel
-                                                                  ?.bookings?[
-                                                                      index]
-                                                                  .statusId ==
-                                                              2 ||
-                                                          ordersModel
-                                                                  ?.bookings?[
-                                                                      index]
-                                                                  .statusId ==
-                                                              3)
-                                              ? Navigator.push(
+                                                              .delivery ==
+                                                          false)
+                                              ? null
+                                              : Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
@@ -126,8 +141,7 @@ class _OrdersPageState extends State<OrdersPage> {
                                                             ordersData: ordersModel
                                                                     ?.bookings?[
                                                                 index],
-                                                          )))
-                                              : null;
+                                                          )));
                                         },
                                         child: Container(
                                           decoration: BoxDecoration(
@@ -143,139 +157,134 @@ class _OrdersPageState extends State<OrdersPage> {
                                             child: Column(
                                               children: [
                                                 SizedBox(
-                                                  height: 15,
+                                                  height: 20,
                                                 ),
                                                 Row(
                                                   children: [
                                                     Text(
                                                       "Package",
-                                                      style: TextStyle(
-                                                          color:
-                                                              Theme.of(context)
-                                                                  .primaryColor,
-                                                          fontSize: 18,
-                                                          fontFamily:
-                                                              "Source Sans Pro",
-                                                          fontWeight:
-                                                              FontWeight.w600),
+                                                      style: TextStyles()
+                                                          .minititle(
+                                                              context: context),
                                                     ),
                                                     SizedBox(
-                                                      width: 10,
+                                                      width: 5,
                                                     ),
                                                     Expanded(
                                                       child: Text(
-                                                        "#${ordersModel?.bookings?[index].id.toString() ?? ""}",
-                                                        style: TextStyle(
-                                                            color: Colors.black,
-                                                            fontSize: 18,
-                                                            fontFamily:
-                                                                "Source Sans Pro",
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .w600),
-                                                      ),
+                                                          "#${ordersModel?.bookings?[index].id.toString() ?? ""}",
+                                                          style: TextStyles()
+                                                              .minititle(
+                                                                  color: Colors
+                                                                      .black,
+                                                                  fontSize: 15,
+                                                                  context:
+                                                                      context)),
                                                     ),
-                                                    Visibility(
-                                                      visible: ordersModel
-                                                              ?.bookings?[index]
-                                                              .pickup !=
-                                                          false,
-                                                      child: ordersModel
-                                                                          ?.bookings?[
-                                                                              index]
-                                                                          .statusId ==
-                                                                      3 &&
-                                                                  ordersModel
-                                                                          ?.bookings?[
-                                                                              index]
-                                                                          .delivery ==
-                                                                      false ||
-                                                              ordersModel
-                                                                      ?.bookings?[
-                                                                          index]
-                                                                      .statusId ==
-                                                                  4
-                                                          ? Container(
-                                                              height: 30,
-                                                              width: 30,
-                                                              decoration: BoxDecoration(
-                                                                  shape: BoxShape
-                                                                      .circle,
-                                                                  color: Colors
-                                                                      .green),
-                                                              child: Center(
-                                                                child: Icon(
-                                                                  Icons.done,
-                                                                  color: Colors
-                                                                      .white,
-                                                                  size: 25,
-                                                                ),
+                                                    ordersModel
+                                                                        ?.bookings?[
+                                                                            index]
+                                                                        .statusId ==
+                                                                    3 &&
+                                                                ordersModel
+                                                                        ?.bookings?[
+                                                                            index]
+                                                                        .delivery ==
+                                                                    false ||
+                                                            ordersModel
+                                                                    ?.bookings?[
+                                                                        index]
+                                                                    .statusId ==
+                                                                4
+                                                        ? Container(
+                                                            height: 30,
+                                                            width: 30,
+                                                            decoration: BoxDecoration(
+                                                                shape: BoxShape
+                                                                    .circle,
+                                                                color: AppColors
+                                                                    .lightGreen),
+                                                            child: Center(
+                                                              child: Icon(
+                                                                Icons.done,
+                                                                color: Colors
+                                                                    .white,
+                                                                size: 25,
                                                               ),
-                                                            )
-                                                          : ButtonWidget(
-                                                              fontSize: 13,
-                                                              onTap: () {
-                                                                print(
-                                                                    "amount is ${ordersModel?.bookings?[index].amount}");
-                                                                ordersModel?.bookings?[index].statusId ==
-                                                                            2 ||
-                                                                        ordersModel?.bookings?[index].statusId ==
-                                                                            3
-                                                                    ? Navigator.push(
-                                                                        context,
-                                                                        MaterialPageRoute(
-                                                                            builder: (context) => PickUpPage(
-                                                                                  ordersData: ordersModel?.bookings?[index],
-                                                                                )))
-                                                                    : null;
-                                                              },
-                                                              label: ordersModel
-                                                                          ?.bookings?[
-                                                                              index]
-                                                                          .statusId ==
-                                                                      2
-                                                                  ? "Pick Up"
-                                                                  : ordersModel
-                                                                              ?.bookings?[
-                                                                                  index]
+                                                            ),
+                                                          )
+                                                        : ButtonWidget(
+                                                            fontSize: 11,
+                                                            onTap: () {
+                                                              print(
+                                                                  "amount is ${ordersModel?.bookings?[index].amount}");
+                                                              ordersModel?.bookings?[index].statusId ==
+                                                                          2 ||
+                                                                      ordersModel
+                                                                              ?.bookings?[index]
                                                                               .statusId ==
                                                                           3
-                                                                      ? "Deliver"
-                                                                      : ordersModel
-                                                                              ?.bookings?[index]
-                                                                              .status ??
-                                                                          "",
-                                                              height: 40,
-                                                              width: 100,
-                                                              borderRadius: 5,
-                                                            ),
-                                                    )
+                                                                  ? Navigator.push(
+                                                                      context,
+                                                                      MaterialPageRoute(
+                                                                          builder: (context) => PickUpPage(
+                                                                                ordersData: ordersModel?.bookings?[index],
+                                                                              )))
+                                                                  : null;
+                                                            },
+                                                            label: ordersModel
+                                                                            ?.bookings?[
+                                                                                index]
+                                                                            .statusId ==
+                                                                        2 &&
+                                                                    ordersModel
+                                                                            ?.bookings?[
+                                                                                index]
+                                                                            .pickup ==
+                                                                        true
+                                                                ? "Pick Up"
+                                                                : ordersModel?.bookings?[index].statusId == 2 &&
+                                                                        ordersModel?.bookings?[index].pickup ==
+                                                                            false &&
+                                                                        ordersModel?.bookings?[index].delivery ==
+                                                                            true
+                                                                    ? "Deliver"
+                                                                    : ordersModel?.bookings?[index].statusId ==
+                                                                            3
+                                                                        ? "Deliver"
+                                                                        : ordersModel?.bookings?[index].status ??
+                                                                            "",
+                                                            height: 30,
+                                                            width: 100,
+                                                            borderRadius: 5,
+                                                          )
                                                   ],
                                                 ),
                                                 SizedBox(
-                                                  height: 18,
+                                                  height: 10,
                                                 ),
                                                 Row(
                                                   children: [
                                                     Text(
                                                       "Pickup :",
-                                                      style: TextStyle(
-                                                          color:
-                                                              Color(0xFF757575),
-                                                          fontSize: 14,
-                                                          //    fontFamily: "Source Sans Pro",
-                                                          fontWeight:
-                                                              FontWeight.w400),
+                                                      style: TextStyles()
+                                                          .mainAppStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                              fontSize: 12,
+                                                              color: Color(
+                                                                  0xFF757575)),
                                                     ),
                                                     Text(
                                                       "  ${ordersModel?.bookings?[index].pickupCity}" ??
                                                           "",
-                                                      style: TextStyle(
-                                                          color: Colors.black,
-                                                          fontSize: 14,
-                                                          //    fontFamily: "Source Sans Pro",
-                                                          fontWeight:
-                                                              FontWeight.w400),
+                                                      style: TextStyles()
+                                                          .mainAppStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                              fontSize: 12),
                                                     ),
                                                   ],
                                                 ),
@@ -286,23 +295,24 @@ class _OrdersPageState extends State<OrdersPage> {
                                                   children: [
                                                     Text(
                                                       "Delivery :",
-                                                      style: TextStyle(
-                                                          color:
-                                                              Color(0xFF757575),
-                                                          fontSize: 14,
-                                                          //    fontFamily: "Source Sans Pro",
-                                                          fontWeight:
-                                                              FontWeight.w400),
+                                                      style: TextStyles()
+                                                          .mainAppStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                              fontSize: 12,
+                                                              color: Color(
+                                                                  0xFF757575)),
                                                     ),
                                                     Text(
                                                       "  ${ordersModel?.bookings?[index].deliveryCity}" ??
                                                           "",
-                                                      style: TextStyle(
-                                                          color: Colors.black,
-                                                          fontSize: 14,
-                                                          //    fontFamily: "Source Sans Pro",
-                                                          fontWeight:
-                                                              FontWeight.w400),
+                                                      style: TextStyles()
+                                                          .mainAppStyle(
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        fontSize: 12,
+                                                      ),
                                                     ),
                                                   ],
                                                 ),
@@ -313,24 +323,61 @@ class _OrdersPageState extends State<OrdersPage> {
                                                   children: [
                                                     Icon(
                                                       Icons.more_time,
-                                                      color: Colors.grey,
+                                                      color: Color(0xFF757575),
                                                     ),
                                                     SizedBox(
-                                                      width: 27,
+                                                      width: 10,
                                                     ),
-                                                    Padding(
-                                                      padding: EdgeInsets.only(
-                                                          right: 140),
-                                                      child: Text(
-                                                        "${ordersModel?.bookings?[index].userPickupTime}",
-                                                        style: TextStyle(
-                                                            color: Colors.grey,
-                                                            fontSize: 14,
-                                                            //    fontFamily: "Source Sans Pro",
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .w400),
-                                                      ),
+                                                    Text(
+                                                      ordersModel
+                                                                      ?.bookings?[
+                                                                          index]
+                                                                      .pickup ==
+                                                                  true &&
+                                                              ordersModel
+                                                                      ?.bookings?[
+                                                                          index]
+                                                                      .delivery ==
+                                                                  false
+                                                          //      &&
+                                                          // ordersModel
+                                                          //         ?.bookings?[
+                                                          //             index]
+                                                          //         .statusId !=
+                                                          //     3 &&
+                                                          // ordersModel
+                                                          //         ?.bookings?[
+                                                          //             index]
+                                                          //         .delivery ==
+                                                          //     false
+                                                          ? "${ordersModel?.bookings?[index].userPickupTime}"
+                                                          : ordersModel
+                                                                          ?.bookings?[
+                                                                              index]
+                                                                          .pickup ==
+                                                                      true &&
+                                                                  ordersModel
+                                                                          ?.bookings?[
+                                                                              index]
+                                                                          .delivery ==
+                                                                      true
+                                                              ? "${ordersModel?.bookings?[index].userDeliveryTime}"
+                                                              : ordersModel?.bookings?[index].delivery ==
+                                                                          true &&
+                                                                      ordersModel
+                                                                              ?.bookings?[index]
+                                                                              .pickup ==
+                                                                          false
+                                                                  ? "${ordersModel?.bookings?[index].userDeliveryTime}"
+                                                                  : "",
+                                                      style: TextStyles()
+                                                          .mainAppStyle(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                              fontSize: 11,
+                                                              color: Color(
+                                                                  0xFF757575)),
                                                     ),
                                                   ],
                                                 ),
@@ -342,22 +389,58 @@ class _OrdersPageState extends State<OrdersPage> {
                                                     children: [
                                                       Icon(
                                                         Icons.calendar_month,
-                                                        color: Colors.grey,
+                                                        color:
+                                                            Color(0xFF757575),
                                                       ),
                                                       SizedBox(
-                                                        width: 28,
+                                                        width: 10,
                                                       ),
                                                       Expanded(
                                                         child: Text(
-                                                          "${ordersModel?.bookings?[index].pickupDate}",
-                                                          style: TextStyle(
-                                                              color:
-                                                                  Colors.grey,
-                                                              fontSize: 14,
-                                                              //    fontFamily: "Source Sans Pro",
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w400),
+                                                          ordersModel
+                                                                          ?.bookings?[
+                                                                              index]
+                                                                          .pickup ==
+                                                                      true &&
+                                                                  ordersModel
+                                                                          ?.bookings?[
+                                                                              index]
+                                                                          .delivery ==
+                                                                      false
+                                                              //      &&
+                                                              // ordersModel
+                                                              //         ?.bookings?[
+                                                              //             index]
+                                                              //         .statusId !=
+                                                              //     3 &&
+                                                              // ordersModel
+                                                              //         ?.bookings?[
+                                                              //             index]
+                                                              //         .delivery ==
+                                                              //     false
+                                                              ? "${ordersModel?.bookings?[index].pickupDate}"
+                                                              : ordersModel?.bookings?[index].pickup ==
+                                                                          true &&
+                                                                      ordersModel
+                                                                              ?.bookings?[
+                                                                                  index]
+                                                                              .delivery ==
+                                                                          true
+                                                                  ? "${ordersModel?.bookings?[index].deliveryDate}"
+                                                                  : ordersModel?.bookings?[index].delivery ==
+                                                                              true &&
+                                                                          ordersModel?.bookings?[index].pickup ==
+                                                                              false
+                                                                      ? "${ordersModel?.bookings?[index].deliveryDate}"
+                                                                      : "",
+                                                          style: TextStyles()
+                                                              .mainAppStyle(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  fontSize: 11,
+                                                                  color: Color(
+                                                                      0xFF757575)),
                                                         ),
                                                       ),
                                                       Text(

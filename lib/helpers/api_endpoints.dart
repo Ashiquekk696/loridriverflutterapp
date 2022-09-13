@@ -1,6 +1,7 @@
 class ApiEndPoints {
   static final login = "driver/login";
   static final logOut = "driver/logout";
+  static final contactPartner = "driver/contact_partner";
   static final notifications = "driver/notifications";
   static final orders = "driver/orders";
   static final delivered = "driver/orders/delivered/";

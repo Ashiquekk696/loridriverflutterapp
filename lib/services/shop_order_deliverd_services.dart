@@ -20,15 +20,15 @@ class ShopOrderDeliveredServices {
     for (int i = 0; i < images!.length; i++) {
       request.files.add(http.MultipartFile(
           'attachment[$i]',
-          File(images[i].path).readAsBytes().asStream(),
-          File(images[i].path).lengthSync(),
+          File(images[i].path ?? "").readAsBytes().asStream(),
+          File(images[i].path ?? "").lengthSync(),
           filename: images[i].path.split('/').last));
 
       var streamData = await request.send();
       var response = await http.Response.fromStream(streamData);
-
+      print("hhkkk${response.body}hhkk");
       final responseData = json.decode(response.body);
-      print("hhkkk${responseData}hhkk");
+
       return responseData;
     }
   }
