@@ -23098,7 +23098,14 @@ com.google.android.exoplayer2.mediacodec.MediaCodecAdapter$Factory:
     public static final com.google.android.exoplayer2.mediacodec.MediaCodecAdapter$Factory DEFAULT
 android.support.v4.media.session.MediaControllerCompat$Callback:
     final android.media.session.MediaController$Callback mCallbackFwk
-com.google.android.exoplayer2.text.TextOutput$-CC
+io.flutter.view.TextureRegistry$SurfaceTextureEntry$-CC
+com.google.android.exoplayer2.drm.DrmSessionEventListener$-CC:
+    public static void $default$onDrmSessionAcquired(com.google.android.exoplayer2.drm.DrmSessionEventListener,int,com.google.android.exoplayer2.source.MediaSource$MediaPeriodId,int)
+    public static void $default$onDrmKeysLoaded(com.google.android.exoplayer2.drm.DrmSessionEventListener,int,com.google.android.exoplayer2.source.MediaSource$MediaPeriodId)
+    public static void $default$onDrmSessionManagerError(com.google.android.exoplayer2.drm.DrmSessionEventListener,int,com.google.android.exoplayer2.source.MediaSource$MediaPeriodId,java.lang.Exception)
+    public static void $default$onDrmKeysRestored(com.google.android.exoplayer2.drm.DrmSessionEventListener,int,com.google.android.exoplayer2.source.MediaSource$MediaPeriodId)
+    public static void $default$onDrmKeysRemoved(com.google.android.exoplayer2.drm.DrmSessionEventListener,int,com.google.android.exoplayer2.source.MediaSource$MediaPeriodId)
+    public static void $default$onDrmSessionReleased(com.google.android.exoplayer2.drm.DrmSessionEventListener,int,com.google.android.exoplayer2.source.MediaSource$MediaPeriodId)
 com.google.android.exoplayer2.video.VideoRendererEventListener$-CC:
     public static void $default$onVideoEnabled(com.google.android.exoplayer2.video.VideoRendererEventListener,com.google.android.exoplayer2.decoder.DecoderCounters)
     public static void $default$onVideoDecoderInitialized(com.google.android.exoplayer2.video.VideoRendererEventListener,java.lang.String,long,long)
@@ -23112,17 +23119,6 @@ com.google.android.exoplayer2.video.VideoRendererEventListener$-CC:
     public static void $default$onVideoCodecError(com.google.android.exoplayer2.video.VideoRendererEventListener,java.lang.Exception)
 com.google.android.exoplayer2.ExoPlayer$AudioOffloadListener$-CC:
     public static void $default$onExperimentalSleepingForOffloadChanged(com.google.android.exoplayer2.ExoPlayer$AudioOffloadListener,boolean)
-com.google.android.exoplayer2.analytics.AnalyticsListener$-CC:
-    public static void $default$onPositionDiscontinuity(com.google.android.exoplayer2.analytics.AnalyticsListener,com.google.android.exoplayer2.analytics.AnalyticsListener$EventTime,com.google.android.exoplayer2.Player$PositionInfo,com.google.android.exoplayer2.Player$PositionInfo,int)
-    public static void $default$onPlayerError(com.google.android.exoplayer2.analytics.AnalyticsListener,com.google.android.exoplayer2.analytics.AnalyticsListener$EventTime,com.google.android.exoplayer2.PlaybackException)
-    public static void $default$onLoadError(com.google.android.exoplayer2.analytics.AnalyticsListener,com.google.android.exoplayer2.analytics.AnalyticsListener$EventTime,com.google.android.exoplayer2.source.LoadEventInfo,com.google.android.exoplayer2.source.MediaLoadData,java.io.IOException,boolean)
-    public static void $default$onDownstreamFormatChanged(com.google.android.exoplayer2.analytics.AnalyticsListener,com.google.android.exoplayer2.analytics.AnalyticsListener$EventTime,com.google.android.exoplayer2.source.MediaLoadData)
-    public static void $default$onBandwidthEstimate(com.google.android.exoplayer2.analytics.AnalyticsListener,com.google.android.exoplayer2.analytics.AnalyticsListener$EventTime,int,long,long)
-    public static void $default$onVideoDisabled(com.google.android.exoplayer2.analytics.AnalyticsListener,com.google.android.exoplayer2.analytics.AnalyticsListener$EventTime,com.google.android.exoplayer2.decoder.DecoderCounters)
-    public static void $default$onVideoSizeChanged(com.google.android.exoplayer2.analytics.AnalyticsListener,com.google.android.exoplayer2.analytics.AnalyticsListener$EventTime,com.google.android.exoplayer2.video.VideoSize)
-    public static void $default$onEvents(com.google.android.exoplayer2.analytics.AnalyticsListener,com.google.android.exoplayer2.Player,com.google.android.exoplayer2.analytics.AnalyticsListener$Events)
-androidx.lifecycle.DefaultLifecycleObserver$-CC
-io.flutter.view.TextureRegistry$SurfaceTextureEntry$-CC
 com.google.android.exoplayer2.audio.AudioRendererEventListener$-CC:
     public static void $default$onAudioEnabled(com.google.android.exoplayer2.audio.AudioRendererEventListener,com.google.android.exoplayer2.decoder.DecoderCounters)
     public static void $default$onAudioDecoderInitialized(com.google.android.exoplayer2.audio.AudioRendererEventListener,java.lang.String,long,long)
@@ -23135,20 +23131,24 @@ com.google.android.exoplayer2.audio.AudioRendererEventListener$-CC:
     public static void $default$onAudioCodecError(com.google.android.exoplayer2.audio.AudioRendererEventListener,java.lang.Exception)
     public static void $default$onAudioSinkError(com.google.android.exoplayer2.audio.AudioRendererEventListener,java.lang.Exception)
 com.google.android.exoplayer2.audio.AudioSink$-CC
-com.google.android.exoplayer2.audio.AudioSink$Listener$-CC
+com.google.android.exoplayer2.analytics.AnalyticsListener$-CC:
+    public static void $default$onPositionDiscontinuity(com.google.android.exoplayer2.analytics.AnalyticsListener,com.google.android.exoplayer2.analytics.AnalyticsListener$EventTime,com.google.android.exoplayer2.Player$PositionInfo,com.google.android.exoplayer2.Player$PositionInfo,int)
+    public static void $default$onPlayerError(com.google.android.exoplayer2.analytics.AnalyticsListener,com.google.android.exoplayer2.analytics.AnalyticsListener$EventTime,com.google.android.exoplayer2.PlaybackException)
+    public static void $default$onLoadError(com.google.android.exoplayer2.analytics.AnalyticsListener,com.google.android.exoplayer2.analytics.AnalyticsListener$EventTime,com.google.android.exoplayer2.source.LoadEventInfo,com.google.android.exoplayer2.source.MediaLoadData,java.io.IOException,boolean)
+    public static void $default$onDownstreamFormatChanged(com.google.android.exoplayer2.analytics.AnalyticsListener,com.google.android.exoplayer2.analytics.AnalyticsListener$EventTime,com.google.android.exoplayer2.source.MediaLoadData)
+    public static void $default$onBandwidthEstimate(com.google.android.exoplayer2.analytics.AnalyticsListener,com.google.android.exoplayer2.analytics.AnalyticsListener$EventTime,int,long,long)
+    public static void $default$onVideoDisabled(com.google.android.exoplayer2.analytics.AnalyticsListener,com.google.android.exoplayer2.analytics.AnalyticsListener$EventTime,com.google.android.exoplayer2.decoder.DecoderCounters)
+    public static void $default$onVideoSizeChanged(com.google.android.exoplayer2.analytics.AnalyticsListener,com.google.android.exoplayer2.analytics.AnalyticsListener$EventTime,com.google.android.exoplayer2.video.VideoSize)
+    public static void $default$onEvents(com.google.android.exoplayer2.analytics.AnalyticsListener,com.google.android.exoplayer2.Player,com.google.android.exoplayer2.analytics.AnalyticsListener$Events)
+androidx.lifecycle.DefaultLifecycleObserver$-CC
 com.google.android.exoplayer2.source.MediaSourceEventListener$-CC
 com.google.android.exoplayer2.Player$Listener$-CC:
     public static void $default$onPlaybackStateChanged(com.google.android.exoplayer2.Player$Listener,int)
     public static void $default$onPlayerError(com.google.android.exoplayer2.Player$Listener,com.google.android.exoplayer2.PlaybackException)
-com.google.android.exoplayer2.drm.DrmSessionEventListener$-CC:
-    public static void $default$onDrmSessionAcquired(com.google.android.exoplayer2.drm.DrmSessionEventListener,int,com.google.android.exoplayer2.source.MediaSource$MediaPeriodId,int)
-    public static void $default$onDrmKeysLoaded(com.google.android.exoplayer2.drm.DrmSessionEventListener,int,com.google.android.exoplayer2.source.MediaSource$MediaPeriodId)
-    public static void $default$onDrmSessionManagerError(com.google.android.exoplayer2.drm.DrmSessionEventListener,int,com.google.android.exoplayer2.source.MediaSource$MediaPeriodId,java.lang.Exception)
-    public static void $default$onDrmKeysRestored(com.google.android.exoplayer2.drm.DrmSessionEventListener,int,com.google.android.exoplayer2.source.MediaSource$MediaPeriodId)
-    public static void $default$onDrmKeysRemoved(com.google.android.exoplayer2.drm.DrmSessionEventListener,int,com.google.android.exoplayer2.source.MediaSource$MediaPeriodId)
-    public static void $default$onDrmSessionReleased(com.google.android.exoplayer2.drm.DrmSessionEventListener,int,com.google.android.exoplayer2.source.MediaSource$MediaPeriodId)
+com.google.android.exoplayer2.audio.AudioSink$Listener$-CC
+com.google.android.exoplayer2.drm.DrmSession$-CC:
+    public static boolean $default$playClearSamplesWithoutKeys(com.google.android.exoplayer2.drm.DrmSession)
+com.google.android.exoplayer2.text.TextOutput$-CC
 io.flutter.plugin.common.BinaryMessenger$-CC:
     public static io.flutter.plugin.common.BinaryMessenger$TaskQueue $default$makeBackgroundTaskQueue(io.flutter.plugin.common.BinaryMessenger,io.flutter.plugin.common.BinaryMessenger$TaskQueueOptions)
     public static void $default$setMessageHandler(io.flutter.plugin.common.BinaryMessenger,java.lang.String,io.flutter.plugin.common.BinaryMessenger$BinaryMessageHandler,io.flutter.plugin.common.BinaryMessenger$TaskQueue)
-com.google.android.exoplayer2.drm.DrmSession$-CC:
-    public static boolean $default$playClearSamplesWithoutKeys(com.google.android.exoplayer2.drm.DrmSession)

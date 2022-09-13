@@ -16,8 +16,8 @@ class DeliveredServices {
     request.headers.addAll({
       "driver-token": driverToken,
     });
-    request.fields['amount'] = amount;
-    print("images are ${images}");
+    request.fields['amount'] = amount.toString();
+    //print("images are ${images}");
     for (int i = 0; i < images!.length; i++) {
       request.files.add(http.MultipartFile(
           'attachment[$i]',

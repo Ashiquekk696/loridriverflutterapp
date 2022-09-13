@@ -17,7 +17,7 @@ class PickedUpService {
       "driver-token": driverToken,
     });
     print("my images are $images");
-    request.fields['amount'] = amount;
+    request.fields['amount'] = amount.toString();
     for (int i = 0; i < images!.length; i++) {
       request.files.add(http.MultipartFile(
           'attachment[$i]',

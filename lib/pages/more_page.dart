@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:loridriverflutterapp/bloc/contact_partner_bloc.dart';
 import 'package:loridriverflutterapp/bloc/logout_bloc.dart';
 import 'package:loridriverflutterapp/bloc/static_contents.dart';
 import 'package:loridriverflutterapp/helpers/sharedpreferences.dart';
+import 'package:loridriverflutterapp/models/contact_partner_model.dart';
 import 'package:loridriverflutterapp/pages/about_us_page.dart';
 import 'package:loridriverflutterapp/pages/contact_page.dart';
 import 'package:loridriverflutterapp/pages/faqs_page.dart';
 import 'package:loridriverflutterapp/pages/login_page.dart';
 import 'package:loridriverflutterapp/pages/terms_and_policies_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
 import '../helpers/api_helper.dart';
+import '../helpers/text_styles.dart';
 
 class MorePage extends StatefulWidget {
   const MorePage({Key? key}) : super(key: key);
@@ -21,11 +24,13 @@ class MorePage extends StatefulWidget {
 class _MorePageState extends State<MorePage> {
   @override
   LogOutBloc bloc = LogOutBloc();
-
+  ContactPartnerBloc contactPartnerBloc = ContactPartnerBloc();
+  ContactPartnerModel? contactPartnerModel;
   @override
   void initState() {
     logOut();
     getDriverName();
+    getContactDetails();
     super.initState();
   }
 
@@ -38,6 +43,24 @@ class _MorePageState extends State<MorePage> {
         case Status.COMPLETED:
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => LoginPage()));
+          setState(() {});
+          break;
+        case Status.ERROR:
+          // TODO: Handle this case.
+          break;
+      }
+    });
+  }
+
+  getContactDetails() async {
+    await contactPartnerBloc.getPartnerData();
+    contactPartnerBloc.contactsPartnerStream.listen((event) {
+      switch (event.status) {
+        case Status.LOADING:
+          // TODO: Handle this case.
+          break;
+        case Status.COMPLETED:
+          contactPartnerModel = event.data;
           setState(() {});
           break;
         case Status.ERROR:
@@ -63,8 +86,9 @@ class _MorePageState extends State<MorePage> {
 
   @override
   Widget build(BuildContext context) {
+    print(contactPartnerModel?.partner?.phone);
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
+      //  backgroundColor: Theme.of(context).primaryColor,
       body: Column(
         children: [
           Container(
@@ -90,38 +114,47 @@ class _MorePageState extends State<MorePage> {
                 SizedBox(
                   width: 25,
                 ),
-                Text("Hey ${driverName} ,",
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontFamily: "Open Sans",
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white)),
+                Text(
+                  "Hey ${driverName} ,",
+                  style: TextStyles().minititle(fontSize: 17, context: context),
+                ),
               ],
             ),
           ),
           SizedBox(
-            height: 20,
+            height: 25,
           ),
-          listTile("assets/images/package.png", "Package Guidelines"),
-          listTile("assets/images/Terms.png", "Terms and Policies", onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => TermsAndPoliciesPage()));
+          // listTile("assets/images/package.png", "Package Guidelines"),
+          // listTile("assets/images/Terms.png", "Terms and Policies", onTap: () {
+          //   Navigator.push(
+          //       context,
+          //       MaterialPageRoute(
+          //           builder: (context) => TermsAndPoliciesPage()));
+          // }),
+          // listTile("assets/images/faqs.png", "FAQs", onTap: () {
+          //   Navigator.push(
+          //       context, MaterialPageRoute(builder: (context) => FaqsPage()));
+          // }),
+          // listTile("assets/images/about.png", "About", onTap: () {
+          //   Navigator.push(context,
+          //       MaterialPageRoute(builder: (context) => AboutUsPage()));
+          // }),
+          Container(
+            height: 1,
+            child: Divider(
+              color: Theme.of(context).primaryColor ?? Colors.white,
+              thickness: 0.5,
+            ),
+          ),
+          listTile("assets/images/ic_action_contact.png", "Contact",
+              context: context,
+              color: Theme.of(context).primaryColor, onTap: () async {
+            await UrlLauncher.launchUrl(
+                Uri.parse("tel:${contactPartnerModel?.partner?.phone ?? ""}"));
           }),
-          listTile("assets/images/faqs.png", "FAQs", onTap: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => FaqsPage()));
-          }),
-          listTile("assets/images/about.png", "About", onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => AboutUsPage()));
-          }),
-          listTile("assets/images/ic_action_contact.png", "Contact", onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => ContactPage()));
-          }),
-          listTile("assets/images/logout.png", "Logout", onTap: () {
+          listTile("assets/images/logout.png", "Logout",
+              context: context,
+              color: Theme.of(context).primaryColor, onTap: () {
             showDialog(
                 context: context,
                 builder: (_) {
@@ -165,10 +198,15 @@ class _MorePageState extends State<MorePage> {
                               Row(
                                 children: [
                                   Spacer(),
-                                  Text(
-                                    "CANCEL",
-                                    style: TextStyle(
-                                        fontSize: 13, color: Colors.black),
+                                  GestureDetector(
+                                    onTap: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: Text(
+                                      "CANCEL",
+                                      style: TextStyle(
+                                          fontSize: 13, color: Colors.black),
+                                    ),
                                   ),
                                   SizedBox(
                                     width: 20,
@@ -182,6 +220,12 @@ class _MorePageState extends State<MorePage> {
                                       bloc.logOut(
                                           userToken:
                                               preferences.getString("token"));
+                                      Navigator.pop(context);
+                                      Navigator.pushReplacement(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  LoginPage()));
                                     },
                                     child: Text(
                                       "YES",
@@ -208,7 +252,7 @@ class _MorePageState extends State<MorePage> {
   }
 }
 
-listTile(image, title, {double? height, onTap}) {
+listTile(image, title, {double? height, onTap, Color? color, context}) {
   return Column(
     children: [
       SizedBox(
@@ -224,16 +268,16 @@ listTile(image, title, {double? height, onTap}) {
               minLeadingWidth: 30,
               leading: Image.asset(
                 image,
-                color: Colors.white,
+                color: color ?? Colors.white,
                 height: height ?? 25,
               ),
               title: Text(
                 title,
                 style: TextStyle(
-                    fontSize: 15,
-                    fontFamily: "Open Sans",
-                    fontWeight: FontWeight.w500,
-                    color: Colors.white),
+                    fontSize: 14,
+                    fontFamily: "Avenir Next LT Pro Regular",
+                    fontWeight: FontWeight.w400,
+                    color: color ?? Colors.white),
               ),
               textColor: Colors.white,
             ),
@@ -243,7 +287,7 @@ listTile(image, title, {double? height, onTap}) {
       Container(
         height: 1,
         child: Divider(
-          color: Colors.white,
+          color: Theme.of(context).primaryColor ?? Colors.white,
           thickness: 0.5,
         ),
       )

@@ -6,11 +6,11 @@ class CircularIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 110,
-      width: 110,
+      height: 40,
+      width: 40,
       child: CircularProgressIndicator(
         color: Theme.of(context).primaryColor,
-        strokeWidth: 20,
+        strokeWidth: 10,
         valueColor: AlwaysStoppedAnimation(Theme.of(context).primaryColor),
       ),
     );

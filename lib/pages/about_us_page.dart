@@ -50,6 +50,26 @@ class _AboutUsPageState extends State<AboutUsPage> {
           SizedBox(
             height: 55,
           ),
+          Row(
+            children: [
+              SizedBox(
+                width: 15,
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Icon(
+                  Icons.arrow_back_ios,
+                  size: 20,
+                ),
+              ),
+              Text("ABOUT", style: Theme.of(context).textTheme.titleMedium),
+            ],
+          ),
+          SizedBox(
+            height: 15,
+          ),
           Container(
               margin: EdgeInsets.only(left: 15, right: 15),
               child: HtmlWidget(data))

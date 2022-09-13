@@ -35,8 +35,8 @@ class BookingsModel {
   String? pickupDate;
   String? deliveryDate;
   String? packageName;
-  String? amount;
-  String? actualAmount;
+  dynamic amount;
+  dynamic actualAmount;
   int? lowestBid;
   int? active;
   Null? billingId;
@@ -191,13 +191,13 @@ class BookingsModel {
     actualAmount = json['actual_amount'];
     lowestBid = json['lowest_bid'];
     active = json['active'];
-    billingId = json['billing_id'];
+    //billingId = json['billing_id'];
     deliveryAddressStreet = json['delivery_address_street'];
     payType = json['pay_type'];
     cancelReview = json['cancel_review'];
     pickupAddressStreet = json['pickup_address_street'];
     statusCode = json['status_code'];
-    response = json['response'];
+    //response = json['response'] != null ? json['response'] : null;
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
     deletedAt = json['deleted_at'];

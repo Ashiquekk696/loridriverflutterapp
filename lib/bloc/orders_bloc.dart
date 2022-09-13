@@ -23,7 +23,7 @@ class OrderssBloc {
     orderssSink.add(ApiResponse.loading("LOADING..."));
     SharedPreferences preferences = await SharedPreferences.getInstance();
 
-    var driverToken = preferences.getString("token");
+    var driverToken = await preferences.getString("token");
 
     var response =
         await OrdersService().ordersService(driverToken: driverToken);

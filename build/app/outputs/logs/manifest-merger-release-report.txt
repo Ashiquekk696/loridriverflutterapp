@@ -22,7 +22,7 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/oem/.
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.8.0] /home/oem/.gradle/caches/transforms-2/files-2.1/8e86e615f21ac3758e97e94e18045107/core-1.8.0/AndroidManifest.xml:24:18-86
 	android:label
-		ADDED from /home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:5:9-36
+		ADDED from /home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:5:9-37
 	android:icon
 		ADDED from /home/oem/StudioProjects/loridriverflutterapp/android/app/src/main/AndroidManifest.xml:7:9-43
 	android:name
